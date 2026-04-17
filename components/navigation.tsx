@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Circle, Phone, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 const navLinks = [
   { label: "Empresa", href: "#empresa" },
@@ -46,21 +47,17 @@ export function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "top-0 bg-white shadow-md py-3"
-            : "top-10 bg-white/95 py-5"
-        }`}
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? "top-0 bg-white shadow-md py-3"
+          : "top-10 bg-white/95 py-5"
+          }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <div className="relative">
-              <Circle className="w-8 h-8 text-[#C0111F] stroke-2 group-hover:scale-110 transition-transform duration-300" />
+              <Image src="/logo.svg" alt="Circulus Logo" width={100} height={50} className="w-[250px] h-[40px] object-cover" />
             </div>
-            <span className="text-xl font-bold tracking-widest text-[#0D0D0D]">
-              CIRCULU&apos;S
-            </span>
           </a>
 
           {/* Desktop Navigation */}

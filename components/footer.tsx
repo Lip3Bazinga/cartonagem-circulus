@@ -1,6 +1,7 @@
 "use client"
 
 import { Circle, Instagram, Facebook, Award, TreePine, Sparkles } from "lucide-react"
+import Image from "next/image"
 
 const quickLinks = [
   { label: "Empresa", href: "#empresa" },
@@ -32,10 +33,7 @@ export function Footer() {
           {/* Column 1 - Logo & Social */}
           <div>
             <a href="#" className="flex items-center gap-2 mb-6 group">
-              <Circle className="w-8 h-8 text-[#C0111F] stroke-2" />
-              <span className="text-xl font-bold tracking-widest text-[#0D0D0D]">
-                CIRCULU&apos;S
-              </span>
+              <Image src="/logo.svg" alt="Circulus Logo" width={100} height={50} className="w-[250px] h-[40px] object-cover" />
             </a>
             <p className="text-[#606060] text-sm leading-relaxed mb-6">
               Indústria de Embalagens Personalizadas desde 1986
