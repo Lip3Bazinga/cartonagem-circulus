@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { Target, Eye, Heart, ShieldCheck, Users, Lightbulb, Leaf } from "lucide-react"
+import Image from "next/image"
 
 const stats = [
   { value: 1986, suffix: "", label: "Desde", isYear: true },
@@ -47,47 +48,66 @@ export function AboutSection() {
           </h2>
         </motion.div>
 
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
-          {/* Left Column - Text */}
+        {/* Main Content with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+          {/* Left Column - Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <p className="text-[#606060] text-lg leading-relaxed mb-8">
-              Instalada na cidade de Franca, interior do estado de São Paulo, a história da Cartonagem Circulu&apos;s revela uma trajetória de luta e persistência dos empreendedores que a criaram, e dos funcionários e colaboradores que participaram do seu crescimento e consolidação no mercado.
-            </p>
-            <p className="text-[#606060] text-lg leading-relaxed">
-              Fundada no ano de 1986 pelo empresário Antônio Ananias, a Circulu&apos;s surge em um período de grande demanda por embalagens. Com uma estrutura de mais de 9.000 metros quadrados, a Cartonagem Circulu&apos;s investe continuamente na pesquisa dos melhores materiais, equipamentos de alta tecnologia e em profissionais qualificados para produção de embalagens personalizadas de papel cartão, micro ondulado e papelão.
-            </p>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="https://cartonagemcirculus.com.br/images/empresa-frente.jpg"
+                alt="Fachada da Cartonagem Circulus em Franca, SP"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Overlay accent */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            </div>
+            {/* Floating badge */}
+            <div className="absolute -bottom-6 -right-6 bg-[#C0111F] text-white px-6 py-4 rounded-xl shadow-lg hidden md:block">
+              <span className="text-3xl font-bold">38+</span>
+              <span className="block text-sm">Anos de História</span>
+            </div>
           </motion.div>
 
-          {/* Right Column - Stats */}
+          {/* Right Column - Text */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="grid grid-cols-2 gap-4">
+            <p className="text-[#606060] text-lg leading-relaxed mb-6">
+              Instalada na cidade de Franca, interior do estado de São Paulo, a história da Cartonagem Circulu&apos;s revela uma trajetória de luta e persistência dos empreendedores que a criaram, e dos funcionários e colaboradores que participaram do seu crescimento e consolidação no mercado.
+            </p>
+            <p className="text-[#606060] text-lg leading-relaxed mb-8">
+              Fundada no ano de 1986 pelo empresário Antônio Ananias, a Circulu&apos;s surge em um período de grande demanda por embalagens. Com uma estrutura de mais de 9.000 metros quadrados, a Cartonagem Circulu&apos;s investe continuamente na pesquisa dos melhores materiais, equipamentos de alta tecnologia e em profissionais qualificados para produção de embalagens personalizadas de papel cartão, micro ondulado e papelão.
+            </p>
+            
+            {/* Stats inline */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="bg-white rounded-2xl p-6 md:p-8 text-center border border-[#E5E5E5] shadow-sm hover:shadow-md transition-all duration-300"
+                  className="text-center p-4 bg-[#F5F5F5] rounded-xl"
                 >
                   {stat.isYear ? (
-                    <span className="text-4xl md:text-5xl font-bold text-[#C0111F]">{stat.value}</span>
+                    <span className="text-2xl md:text-3xl font-bold text-[#C0111F]">{stat.value}</span>
                   ) : (
                     <AnimatedCounter
                       end={stat.value}
                       suffix={stat.suffix}
-                      className="text-4xl md:text-5xl font-bold text-[#C0111F]"
+                      className="text-2xl md:text-3xl font-bold text-[#C0111F]"
                     />
                   )}
-                  <p className="text-[#606060] text-sm md:text-base mt-2">
+                  <p className="text-[#606060] text-xs md:text-sm mt-1">
                     {stat.label}
                   </p>
                 </motion.div>
