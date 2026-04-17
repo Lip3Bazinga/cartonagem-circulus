@@ -52,24 +52,24 @@ const equipment = [
 
 const sliderImages = [
   {
-    src: "https://cartonagemcirculus.com.br/images/maquinas/roland800.jpg",
-    alt: "Impressora Roland 800",
-    caption: "Impressora Roland 800",
-  },
-  {
-    src: "https://cartonagemcirculus.com.br/images/maquinas/kba-rapida.jpg",
-    alt: "Impressora KBA Rapida",
+    src: "/images/maquinas/impressora-offset.jpg",
+    alt: "Impressora Offset KBA Rapida",
     caption: "Impressora KBA Rapida",
   },
   {
-    src: "https://cartonagemcirculus.com.br/images/maquinas/bobst.jpg",
-    alt: "Bobst Commercial",
+    src: "/images/maquinas/corte-vinco.jpg",
+    alt: "Bobst Commercial - Corte e Vinco",
     caption: "Bobst Commercial",
   },
   {
-    src: "https://cartonagemcirculus.com.br/images/maquinas/coladeira.jpg",
+    src: "/images/maquinas/coladeira.jpg",
     alt: "Coladeira Bobst Expert",
     caption: "Coladeira Bobst Expert",
+  },
+  {
+    src: "/images/maquinas/pre-impressao.jpg",
+    alt: "Estúdio de Pré-Impressão",
+    caption: "Estúdio de Pré-Impressão",
   },
 ]
 

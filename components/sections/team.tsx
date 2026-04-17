@@ -72,7 +72,7 @@ export function TeamSection() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="https://cartonagemcirculus.com.br/images/equipe.jpg"
+                src="/images/equipe.jpg"
                 alt="Equipe da Cartonagem Circulus"
                 fill
                 className="object-cover"

@@ -59,7 +59,7 @@ export function AboutSection() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="https://cartonagemcirculus.com.br/images/empresa-frente.jpg"
+                src="/images/empresa-fachada.jpg"
                 alt="Fachada da Cartonagem Circulus em Franca, SP"
                 fill
                 className="object-cover"
