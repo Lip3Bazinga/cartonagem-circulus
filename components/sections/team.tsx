@@ -129,21 +129,6 @@ export function TeamSection() {
                 </motion.div>
               ))}
             </div>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.6 }}
-              className="mt-8"
-            >
-              <a
-                href="#contato"
-                className="inline-flex items-center gap-2 bg-[#C0111F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#A00F1A] transition-colors duration-300"
-              >
-                Faça Parte da Nossa História
-              </a>
-            </motion.div>
           </motion.div>
         </div>
       </div>
