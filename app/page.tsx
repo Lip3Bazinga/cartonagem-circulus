@@ -6,13 +6,15 @@ import { ProductsSection } from "@/components/sections/products"
 import { ProcessSection } from "@/components/sections/process"
 import { CertificationsSection } from "@/components/sections/certifications"
 import { DifferentialsSection } from "@/components/sections/differentials"
+import { TeamSection } from "@/components/sections/team"
 import { SegmentsSection } from "@/components/sections/segments"
+import { LocationSection } from "@/components/sections/location"
 import { ContactSection } from "@/components/sections/contact"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0D0D0D]">
+    <main className="min-h-screen bg-white">
       <Navigation />
       <HeroSection />
       <AboutSection />
@@ -21,7 +23,9 @@ export default function Home() {
       <ProcessSection />
       <CertificationsSection />
       <DifferentialsSection />
+      <TeamSection />
       <SegmentsSection />
+      <LocationSection />
       <ContactSection />
       <Footer />
     </main>

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-import { Send, Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react"
+import { Send, Phone, Mail, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -188,35 +188,6 @@ export function ContactSection() {
                 <p className="text-[#606060] text-sm break-all">circulus@cartonagemcirculus.com.br</p>
               </div>
             </a>
-
-            {/* Address */}
-            <div className="bg-white rounded-xl p-6 flex items-start gap-4 border border-[#E5E5E5] shadow-sm">
-              <div className="w-12 h-12 rounded-lg bg-[#C0111F]/10 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-6 h-6 text-[#C0111F]" />
-              </div>
-              <div>
-                <p className="text-[#0D0D0D] font-semibold">Endereço</p>
-                <p className="text-[#606060] text-sm leading-relaxed">
-                  Av. Alberto Pulicano, 4701<br />
-                  Distrito Industrial<br />
-                  Franca/SP — Brasil
-                </p>
-              </div>
-            </div>
-
-            {/* Hours */}
-            <div className="bg-white rounded-xl p-6 flex items-start gap-4 border border-[#E5E5E5] shadow-sm">
-              <div className="w-12 h-12 rounded-lg bg-[#C0111F]/10 flex items-center justify-center flex-shrink-0">
-                <Clock className="w-6 h-6 text-[#C0111F]" />
-              </div>
-              <div>
-                <p className="text-[#0D0D0D] font-semibold">Horário de Atendimento</p>
-                <p className="text-[#606060] text-sm leading-relaxed">
-                  Seg a Qui: 7:00 às 17:00<br />
-                  Sex: 7:00 às 14:45
-                </p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

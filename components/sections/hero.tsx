@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -20,81 +21,118 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-32 pb-32">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-white shadow-sm border border-[#E5E5E5] px-4 py-2 rounded-full mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#C0111F] animate-pulse" />
-            <span className="text-sm text-[#606060]">Desde 1986 — Franca, São Paulo</span>
-          </motion.div>
-
-          {/* Headline */}
-          <div className="overflow-hidden mb-6">
-            <motion.h1
-              initial={{ y: 100 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
+      <div className="relative z-10 container mx-auto px-6 pt-32 pb-40">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left - Text Content */}
+          <div>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 bg-white shadow-sm border border-[#E5E5E5] px-4 py-2 rounded-full mb-8"
             >
-              EMBALAGENS QUE
-            </motion.h1>
+              <span className="w-2 h-2 rounded-full bg-[#C0111F] animate-pulse" />
+              <span className="text-sm text-[#606060]">Desde 1986 — Franca, SP</span>
+            </motion.div>
+
+            {/* Headline */}
+            <div className="overflow-hidden mb-4">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
+              >
+                EMBALAGENS QUE
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden mb-6">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight"
+              >
+                <span className="text-[#0D0D0D]">PROTEGEM E </span>
+                <span className="text-[#C0111F]">IMPRESSIONAM</span>
+              </motion.h1>
+            </div>
+
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg md:text-xl text-[#606060] max-w-xl mb-10 leading-relaxed"
+            >
+              Soluções em embalagens personalizadas de papel cartão, micro ondulado e papelão. 
+              Mais de 38 anos de excelência, tecnologia de ponta e qualidade certificada ISO 9001 e FSC.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row items-start gap-4"
+            >
+              <Button
+                asChild
+                size="lg"
+                className="bg-[#C0111F] hover:bg-[#a00e1a] text-white px-8 py-6 rounded-lg font-semibold text-lg transition-all duration-300 group"
+              >
+                <a href="#contato" className="flex items-center gap-2">
+                  Solicitar Orçamento
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-[#C0111F] text-[#C0111F] hover:bg-[#C0111F] hover:text-white px-8 py-6 rounded-lg font-semibold text-lg group"
+              >
+                <a href="tel:+551637130500" className="flex items-center gap-2">
+                  <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  (16) 3713-0500
+                </a>
+              </Button>
+            </motion.div>
           </div>
-          <div className="overflow-hidden mb-8">
-            <motion.h1
-              initial={{ y: 100 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight"
-            >
-              <span className="text-[#0D0D0D]">PROTEGEM E </span>
-              <span className="text-[#C0111F]">IMPRESSIONAM</span>
-            </motion.h1>
-          </div>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-[#606060] max-w-3xl mx-auto mb-10 leading-relaxed"
-          >
-            Soluções em embalagens personalizadas de papel cartão, micro ondulado e papelão. 
-            Mais de 38 anos de excelência, tecnologia de ponta e qualidade certificada ISO 9001 e FSC.
-          </motion.p>
-
-          {/* CTA Buttons */}
+          {/* Right - Image */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:block"
           >
-            <Button
-              asChild
-              size="lg"
-              className="bg-[#C0111F] hover:bg-[#a00e1a] text-white px-8 py-6 rounded-lg font-semibold text-lg transition-all duration-300 group"
-            >
-              <a href="#contato" className="flex items-center gap-2">
-                Solicitar Orçamento
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-[#C0111F] text-[#C0111F] hover:bg-[#C0111F] hover:text-white px-8 py-6 rounded-lg font-semibold text-lg group"
-            >
-              <a href="tel:+551637130500" className="flex items-center gap-2">
-                <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                (16) 3713-0500
-              </a>
-            </Button>
+            <div className="relative aspect-square max-w-lg mx-auto">
+              <div className="absolute inset-0 bg-[#C0111F]/10 rounded-3xl transform rotate-3" />
+              <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/hero-embalagens.jpg"
+                  alt="Embalagens personalizadas Cartonagem Circulus"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              {/* Floating badge */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-lg p-4 border border-[#E5E5E5]">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#C0111F]/10 flex items-center justify-center">
+                    <span className="text-[#C0111F] font-bold text-xl">ISO</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#0D0D0D]">Certificado</p>
+                    <p className="text-sm text-[#606060]">ISO 9001 + FSC</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
