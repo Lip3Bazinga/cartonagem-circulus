@@ -8,6 +8,7 @@ const quickLinks = [
   { label: "Tecnologia", href: "#tecnologia" },
   { label: "Produtos", href: "#produtos" },
   { label: "Certificações", href: "#certificacoes" },
+  { label: "Compliance", href: "#compliance" },
   { label: "Contato", href: "#contato" },
 ]
 

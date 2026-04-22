@@ -10,6 +10,7 @@ import { TeamSection } from "@/components/sections/team"
 import { SegmentsSection } from "@/components/sections/segments"
 import { LocationSection } from "@/components/sections/location"
 import { ContactSection } from "@/components/sections/contact"
+import { ComplianceSection } from "@/components/sections/compliance"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <DifferentialsSection />
       <TeamSection />
       <SegmentsSection />
+      <ComplianceSection />
       <LocationSection />
       <ContactSection />
       <Footer />
