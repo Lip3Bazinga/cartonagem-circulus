@@ -7,9 +7,7 @@ import {
   Footprints, 
   Home, 
   Puzzle, 
-  Pill, 
   Wrench, 
-  Leaf,
   LayoutGrid,
   Wine as GlassWater,
   CookingPot,
@@ -22,9 +20,7 @@ const segments = [
   { icon: Footprints, label: "Calçados" },
   { icon: Home, label: "Utilidades Domésticas" },
   { icon: Puzzle, label: "Brinquedos" },
-  { icon: Pill, label: "Farmacêuticos e Cosméticos" },
   { icon: Wrench, label: "Ferramentas e Auto-peças" },
-  { icon: Leaf, label: "Produtos Fitoterápicos" },
   { icon: LayoutGrid, label: "Expositores / PDV" },
   { icon: GlassWater, label: "Vidros e Louças" },
   { icon: CookingPot, label: "Panelas e Assadeiras" },
@@ -58,7 +54,7 @@ export function SegmentsSection() {
         </motion.div>
 
         {/* Segments Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 max-w-5xl mx-auto">
           {segments.map((segment, index) => (
             <motion.div
               key={segment.label}

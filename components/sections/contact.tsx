@@ -176,18 +176,15 @@ export function ContactSection() {
             </a>
 
             {/* Email */}
-            <a
-              href="mailto:circulus@cartonagemcirculus.com.br"
-              className="bg-white rounded-xl p-6 flex items-center gap-4 border border-[#E5E5E5] shadow-sm hover:shadow-md hover:border-[#C0111F]/30 transition-all duration-300 block group"
-            >
-              <div className="w-12 h-12 rounded-lg bg-[#C0111F]/10 flex items-center justify-center group-hover:bg-[#C0111F]/20 transition-colors">
+            <div className="bg-white rounded-xl p-6 flex items-center gap-4 border border-[#E5E5E5] shadow-sm">
+              <div className="w-12 h-12 rounded-lg bg-[#C0111F]/10 flex items-center justify-center">
                 <Mail className="w-6 h-6 text-[#C0111F]" />
               </div>
               <div>
                 <p className="text-[#0D0D0D] font-semibold">E-mail</p>
-                <p className="text-[#606060] text-sm break-all">circulus@cartonagemcirculus.com.br</p>
+                <p className="text-[#909090] text-sm italic">E-mail comercial a definir</p>
               </div>
-            </a>
+            </div>
           </motion.div>
         </div>
       </div>
