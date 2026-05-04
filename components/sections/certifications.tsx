@@ -69,13 +69,11 @@ export function CertificationsSection() {
 
                 {/* Logo */}
                 <div className="flex items-center justify-center mb-6">
-                  <div className="w-28 h-28 rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center overflow-hidden p-3 group-hover:border-[#C0111F]/30 transition-colors duration-300">
+                  <div className="w-48 h-48 rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden group-hover:border-[#C0111F]/30 transition-colors duration-300">
                     <img
                       src={cert.logo}
                       alt={`Certificação ${cert.title}`}
-                      width={88}
-                      height={88}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
