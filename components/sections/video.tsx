@@ -1,13 +1,20 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-import { Play, X } from "lucide-react"
+import { Maximize2, X } from "lucide-react"
 
 export function VideoSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  useEffect(() => {
+    if (isInView && videoRef.current) {
+      videoRef.current.play().catch(() => {})
+    }
+  }, [isInView])
 
   return (
     <>
@@ -57,43 +64,36 @@ export function VideoSection() {
               Mais de 40 anos transformando papel em valor. Conheça nossa estrutura, tecnologia e equipe.
             </motion.p>
 
-            {/* Video Thumbnail */}
+            {/* Video inline */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl cursor-pointer group"
-              onClick={() => setIsModalOpen(true)}
+              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group"
             >
-              {/* Placeholder thumbnail */}
-              <div className="w-full h-full bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] flex items-center justify-center">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Corner decorations */}
-                  <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#C0111F]/60 rounded-tl" />
-                  <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-[#C0111F]/60 rounded-tr" />
-                  <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-[#C0111F]/60 rounded-bl" />
-                  <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#C0111F]/60 rounded-br" />
+              <video
+                ref={videoRef}
+                src="/video.mp4"
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
 
-                  {/* Play Button */}
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center justify-center"
-                  >
-                    {/* Pulsing ring */}
-                    <div className="absolute w-28 h-28 rounded-full bg-[#C0111F]/20 animate-ping" />
-                    <div className="absolute w-24 h-24 rounded-full bg-[#C0111F]/30" />
-                    <div className="relative w-20 h-20 rounded-full bg-[#C0111F] flex items-center justify-center shadow-lg shadow-[#C0111F]/40 group-hover:bg-[#a00e1a] transition-colors duration-300">
-                      <Play className="w-8 h-8 text-white fill-white ml-1" />
-                    </div>
-                  </motion.div>
-                </div>
+              {/* Corner decorations */}
+              <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#C0111F]/60 rounded-tl pointer-events-none" />
+              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-[#C0111F]/60 rounded-tr pointer-events-none" />
+              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-[#C0111F]/60 rounded-bl pointer-events-none" />
+              <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#C0111F]/60 rounded-br pointer-events-none" />
 
-                {/* Label at bottom */}
-                <div className="absolute bottom-6 left-0 right-0 text-center">
-                  <span className="text-[#606060] text-sm">Clique para assistir o vídeo institucional</span>
-                </div>
-              </div>
+              {/* Fullscreen button */}
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-[#C0111F] z-10"
+                aria-label="Assistir em tela cheia"
+              >
+                <Maximize2 className="w-5 h-5 text-white" />
+              </button>
             </motion.div>
           </div>
         </div>
@@ -115,12 +115,11 @@ export function VideoSection() {
             className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <iframe
-              src="https://www.youtube.com/embed/?autoplay=1"
-              title="Vídeo Institucional Cartonagem Circulus"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              className="w-full h-full"
+            <video
+              src="/video.mp4"
+              autoPlay
+              controls
+              className="w-full h-full object-cover"
             />
             <button
               onClick={() => setIsModalOpen(false)}
