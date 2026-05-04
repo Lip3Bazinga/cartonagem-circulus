@@ -1,6 +1,6 @@
 "use client"
 
-import { Circle, Instagram, Facebook, Award, TreePine, Sparkles } from "lucide-react"
+import { Circle, Instagram, Facebook } from "lucide-react"
 import Image from "next/image"
 
 const quickLinks = [
@@ -13,9 +13,9 @@ const quickLinks = [
 ]
 
 const certifications = [
-  { icon: Award, label: "ISO 9001" },
-  { icon: TreePine, label: "FSC®" },
-  { icon: Sparkles, label: "FAMA/Disney" },
+  { src: "/images/certs/iso9001.jpg", label: "ISO 9001" },
+  { src: "/images/certs/fsc.jpg", label: "FSC®" },
+  { src: "/images/certs/fama.jpg", label: "FAMA/Disney" },
 ]
 
 const socialLinks = [
@@ -75,16 +75,17 @@ export function Footer() {
           {/* Column 3 - Certifications */}
           <div>
             <h4 className="text-[#0D0D0D] font-semibold mb-6">Certificações</h4>
-            <div className="space-y-4">
+            <div className="flex gap-3">
               {certifications.map((cert) => (
-                <div
-                  key={cert.label}
-                  className="flex items-center gap-3"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center border border-[#E5E5E5]">
-                    <cert.icon className="w-5 h-5 text-[#C0111F]" />
+                <div key={cert.label} className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-xl bg-white border border-[#E5E5E5] overflow-hidden shadow-sm">
+                    <img
+                      src={cert.src}
+                      alt={cert.label}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <span className="text-[#606060] text-sm">{cert.label}</span>
+                  <span className="text-[#606060] text-xs text-center leading-tight">{cert.label}</span>
                 </div>
               ))}
             </div>
