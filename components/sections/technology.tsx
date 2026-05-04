@@ -59,7 +59,7 @@ export function TechnologySection() {
 
   useEffect(() => {
     if (paused) return
-    const interval = setInterval(next, 1500)
+    const interval = setInterval(next, 5000)
     return () => clearInterval(interval)
   }, [next, paused])
 
@@ -102,12 +102,14 @@ export function TechnologySection() {
         transition={{ duration: 0.5 }}
         className="absolute top-10 left-1/2 -translate-x-1/2 text-center z-10"
       >
-        <span className="text-[#C0111F] text-xs font-semibold tracking-widest uppercase">
-          Infraestrutura
-        </span>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mt-1">
-          NOSSA TECNOLOGIA
-        </h2>
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl px-8 py-4 shadow-lg">
+          <span className="text-[#C0111F] text-xs font-semibold tracking-widest uppercase">
+            Infraestrutura
+          </span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mt-1 drop-shadow-md">
+            NOSSA TECNOLOGIA
+          </h2>
+        </div>
       </motion.div>
 
       {/* Description balloon — bottom center */}
@@ -119,15 +121,15 @@ export function TechnologySection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="bg-white rounded-2xl shadow-2xl px-8 py-6 max-w-xl w-full text-center"
+            className="backdrop-blur-md bg-white/15 border border-white/25 rounded-2xl shadow-2xl px-8 py-6 max-w-xl w-full text-center"
           >
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#C0111F] bg-[#C0111F]/10 px-3 py-1 rounded-full mb-3">
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#C0111F] bg-white/20 px-3 py-1 rounded-full mb-3">
               {slides[current].category}
             </span>
-            <h3 className="text-[#0D0D0D] font-bold text-lg md:text-xl leading-tight mb-2">
+            <h3 className="text-white font-bold text-lg md:text-xl leading-tight mb-2 drop-shadow">
               {slides[current].title}
             </h3>
-            <p className="text-[#606060] text-sm md:text-base leading-relaxed">
+            <p className="text-white/80 text-sm md:text-base leading-relaxed">
               {slides[current].description}
             </p>
           </motion.div>
@@ -173,7 +175,7 @@ export function TechnologySection() {
           className="h-full bg-[#C0111F]"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
-          transition={{ duration: 1.5, ease: "linear" }}
+          transition={{ duration: 5, ease: "linear" }}
         />
       </div>
     </section>
