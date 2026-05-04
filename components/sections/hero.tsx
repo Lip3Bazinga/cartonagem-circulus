@@ -6,12 +6,33 @@ import { Button } from "@/components/ui/button"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 import Image from "next/image"
 
+const certifications = [
+  {
+    src: "/images/certs/iso9001.jpg",
+    alt: "Certificação ISO 9001",
+    label: "ISO 9001",
+    sub: "Gestão da Qualidade",
+  },
+  {
+    src: "/images/certs/fsc.jpg",
+    alt: "Certificação FSC",
+    label: "FSC®",
+    sub: "Certificação Florestal",
+  },
+  {
+    src: "/images/certs/fama.jpg",
+    alt: "Autorização FAMA Disney",
+    label: "FAMA",
+    sub: "Autorização Disney",
+  },
+]
+
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F5F5]">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: "radial-gradient(circle at 1px 1px, #0D0D0D 1px, transparent 0)",
@@ -21,7 +42,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-32 pb-40">
+      <div className="relative z-10 container mx-auto px-6 pt-32 pb-48">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}
           <div>
@@ -75,7 +96,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex flex-col sm:flex-row items-start gap-4 mb-12"
             >
               <Button
                 asChild
@@ -99,6 +120,39 @@ export function HeroSection() {
                 </a>
               </Button>
             </motion.div>
+
+            {/* Certification logos row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.55 }}
+              className="flex items-center gap-2"
+            >
+              <span className="text-xs text-[#909090] uppercase tracking-wider mr-2 whitespace-nowrap">Certificado por</span>
+              <div className="flex items-center gap-4">
+                {certifications.map((cert) => (
+                  <div
+                    key={cert.label}
+                    className="group flex items-center gap-2 bg-white border border-[#E5E5E5] rounded-xl px-3 py-2 shadow-sm hover:shadow-md hover:border-[#C0111F]/30 transition-all duration-300"
+                    title={cert.sub}
+                  >
+                    <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 bg-[#F5F5F5]">
+                      <img
+                        src={cert.src}
+                        alt={cert.alt}
+                        width={32}
+                        height={32}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-[#0D0D0D] leading-none">{cert.label}</p>
+                      <p className="text-[10px] text-[#909090] leading-tight mt-0.5">{cert.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
           {/* Right - Image */}
@@ -120,18 +174,6 @@ export function HeroSection() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-lg p-4 border border-[#E5E5E5]">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-[#C0111F]/10 flex items-center justify-center">
-                    <span className="text-[#C0111F] font-bold text-xl">ISO</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-[#0D0D0D]">Certificado</p>
-                    <p className="text-sm text-[#606060]">ISO 9001 + FSC + FAMA</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>
@@ -146,7 +188,7 @@ export function HeroSection() {
       >
         <div className="container mx-auto px-6 pb-8">
           <div className="bg-white rounded-2xl shadow-lg border border-[#E5E5E5] p-6 md:p-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="flex items-center justify-center md:justify-start gap-4">
                 <div>
                   <AnimatedCounter end={40} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
@@ -161,14 +203,23 @@ export function HeroSection() {
               </div>
               <div className="flex items-center justify-center gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
                 <div>
-                  <AnimatedCounter end={12} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
+                  <AnimatedCounter end={10} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
                   <p className="text-sm text-[#606060]">Segmentos Atendidos</p>
                 </div>
               </div>
               <div className="flex items-center justify-center md:justify-end gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
-                <div>
-                  <p className="text-3xl font-bold text-[#C0111F]">ISO</p>
-                  <p className="text-sm text-[#606060]">9001 + FSC + FAMA</p>
+                <div className="flex items-center gap-3">
+                  {certifications.map((cert) => (
+                    <div key={cert.label} className="w-9 h-9 rounded-lg overflow-hidden bg-[#F5F5F5] border border-[#E5E5E5]" title={cert.label}>
+                      <img
+                        src={cert.src}
+                        alt={cert.alt}
+                        width={36}
+                        height={36}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
