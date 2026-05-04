@@ -2,327 +2,179 @@
 
 import { useRef, useState, useEffect, useCallback } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
-import { Printer, Layers, Package, Scissors, Monitor, Palette, ChevronLeft, ChevronRight, Settings, Cog } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
-const equipment = [
-  {
-    icon: Printer,
-    title: "Impressão digital de grande formato",
-    description: "Provas e pequenas tiragens com alta fidelidade de cores e detalhes",
-    category: "Impressão",
-  },
-  {
-    icon: Printer,
-    title: "Impressão offset de alta velocidade",
-    description: "Qualidade gráfica superior em grandes volumes com consistência total",
-    category: "Impressão",
-  },
-  {
-    icon: Layers,
-    title: "Acoplagem de alta precisão",
-    description: "Acabamento e acoplagem com encaixe perfeito para embalagens complexas",
-    category: "Acabamento",
-  },
-  {
-    icon: Package,
-    title: "Colagem automática de caixas",
-    description: "Montagem com máxima precisão e velocidade para grandes volumes",
-    category: "Montagem",
-  },
-  {
-    icon: Scissors,
-    title: "Corte e vinco de última geração",
-    description: "Cortes precisos e vincos perfeitos para qualquer formato de embalagem",
-    category: "Corte",
-  },
-  {
-    icon: Monitor,
-    title: "Estúdio de pré-impressão",
-    description: "Desenvolvimento e aprovação de artes com workflow profissional",
-    category: "Design",
-  },
-  {
-    icon: Palette,
-    title: "Gestão de cores profissional",
-    description: "Calibração e padronização de cores para resultados consistentes e certificados",
-    category: "Qualidade",
-  },
-]
-
-const sliderImages = [
+const slides = [
   {
     src: "/images/maquinas/impressora-offset.jpg",
     alt: "Impressão offset de alta velocidade",
-    caption: "Impressão offset de alta velocidade",
+    category: "Impressão",
+    title: "Impressão offset de alta velocidade",
+    description: "Qualidade gráfica superior em grandes volumes com consistência total de cores e detalhes.",
   },
   {
     src: "/images/maquinas/corte-vinco.jpg",
     alt: "Corte e vinco de última geração",
-    caption: "Corte e vinco de última geração",
+    category: "Corte",
+    title: "Corte e vinco de última geração",
+    description: "Cortes precisos e vincos perfeitos para qualquer formato de embalagem complexa.",
   },
   {
     src: "/images/maquinas/coladeira.jpg",
     alt: "Colagem automática de caixas",
-    caption: "Colagem automática de caixas",
+    category: "Montagem",
+    title: "Colagem automática de caixas",
+    description: "Montagem com máxima precisão e velocidade para produção em grandes volumes.",
   },
   {
     src: "/images/maquinas/pre-impressao.jpg",
     alt: "Estúdio de pré-impressão",
-    caption: "Estúdio de pré-impressão",
+    category: "Design",
+    title: "Estúdio de pré-impressão",
+    description: "Desenvolvimento e aprovação de artes com workflow profissional e gestão de cores GMG.",
+  },
+  {
+    src: "/images/maquinas/impressora-offset.jpg",
+    alt: "Acoplagem de alta precisão",
+    category: "Acabamento",
+    title: "Acoplagem de alta precisão",
+    description: "Acabamento e acoplagem com encaixe perfeito para embalagens de múltiplas camadas.",
   },
 ]
 
 export function TechnologySection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [selectedEquipment, setSelectedEquipment] = useState(0)
+  const [current, setCurrent] = useState(0)
+  const [paused, setPaused] = useState(false)
 
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % sliderImages.length)
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % slides.length)
   }, [])
 
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length)
+  const prev = useCallback(() => {
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
   }, [])
 
-  // Auto-advance slider
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000)
+    if (paused) return
+    const interval = setInterval(next, 1500)
     return () => clearInterval(interval)
-  }, [nextSlide])
+  }, [next, paused])
 
   return (
     <section
       ref={sectionRef}
       id="tecnologia"
-      className="relative py-24 md:py-32 bg-[#0D0D0D] overflow-hidden"
+      className="relative w-full overflow-hidden"
+      style={{ height: "100vh", minHeight: 600 }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+      {/* Full-bleed slider background */}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={slides[current].src}
+            alt={slides[current].alt}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          {/* Dark gradient overlay — stronger at bottom for legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Section label — top left */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+        className="absolute top-10 left-1/2 -translate-x-1/2 text-center z-10"
+      >
+        <span className="text-[#C0111F] text-xs font-semibold tracking-widest uppercase">
+          Infraestrutura
+        </span>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mt-1">
+          NOSSA TECNOLOGIA
+        </h2>
+      </motion.div>
+
+      {/* Description balloon — bottom center */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center pb-12 px-6">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="bg-white rounded-2xl shadow-2xl px-8 py-6 max-w-xl w-full text-center"
+          >
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#C0111F] bg-[#C0111F]/10 px-3 py-1 rounded-full mb-3">
+              {slides[current].category}
+            </span>
+            <h3 className="text-[#0D0D0D] font-bold text-lg md:text-xl leading-tight mb-2">
+              {slides[current].title}
+            </h3>
+            <p className="text-[#606060] text-sm md:text-base leading-relaxed">
+              {slides[current].description}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Dot indicators */}
+        <div className="flex items-center gap-2 mt-5">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Ir para slide ${i + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                i === current
+                  ? "w-6 h-2 bg-[#C0111F]"
+                  : "w-2 h-2 bg-white/40 hover:bg-white/70"
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="container mx-auto px-6 relative">
-        {/* Section Header */}
+      {/* Prev / Next arrows */}
+      <button
+        onClick={prev}
+        aria-label="Imagem anterior"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center hover:bg-black/60 transition-colors"
+      >
+        <ChevronLeft className="w-5 h-5 text-white" />
+      </button>
+      <button
+        onClick={next}
+        aria-label="Próxima imagem"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center hover:bg-black/60 transition-colors"
+      >
+        <ChevronRight className="w-5 h-5 text-white" />
+      </button>
+
+      {/* Progress bar */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-white/10 z-10">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-[#C0111F] text-sm font-semibold tracking-widest uppercase mb-4 block">
-            Infraestrutura
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6">
-            NOSSA TECNOLOGIA
-          </h2>
-          <p className="text-[#A0A0A0] text-lg leading-relaxed max-w-3xl mx-auto">
-            A Cartonagem Circulu&apos;s possui sistemas tecnológicos que garantem a impressão e o bom atendimento. 
-            Investimos constantemente em tecnologia de infraestrutura e equipamento para sempre oferecer o melhor em impressão, acabamento e atendimento.
-          </p>
-        </motion.div>
-
-        {/* Main Content - Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left - Image Slider (Full Height) */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative"
-          >
-            <div className="relative aspect-[4/3] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src={sliderImages[currentSlide].src}
-                    alt={sliderImages[currentSlide].alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Caption */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-lg bg-[#C0111F] flex items-center justify-center">
-                      <Cog className="w-5 h-5 text-white" />
-                    </div>
-                    <span className="text-[#C0111F] text-sm font-semibold uppercase tracking-wide">Equipamento</span>
-                  </div>
-                  <p className="text-white text-xl font-bold">
-                    {sliderImages[currentSlide].caption}
-                  </p>
-                </motion.div>
-              </div>
-
-              {/* Navigation */}
-              <div className="absolute top-4 right-4 flex gap-2">
-                <button
-                  onClick={prevSlide}
-                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors"
-                  aria-label="Imagem anterior"
-                >
-                  <ChevronLeft className="w-5 h-5 text-white" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors"
-                  aria-label="Próxima imagem"
-                >
-                  <ChevronRight className="w-5 h-5 text-white" />
-                </button>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
-                <motion.div
-                  className="h-full bg-[#C0111F]"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 5, ease: "linear" }}
-                  key={currentSlide}
-                />
-              </div>
-            </div>
-
-            {/* Thumbnail Navigation */}
-            <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
-              {sliderImages.map((img, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`relative w-20 h-16 rounded-lg overflow-hidden flex-shrink-0 transition-all duration-300 ${
-                    index === currentSlide
-                      ? "ring-2 ring-[#C0111F] ring-offset-2 ring-offset-[#0D0D0D]"
-                      : "opacity-50 hover:opacity-100"
-                  }`}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                  />
-                </button>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right - Equipment List */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-[#C0111F] flex items-center justify-center">
-                <Settings className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">Nossos Equipamentos</h3>
-                <p className="text-[#A0A0A0] text-sm">Tecnologia de ponta em cada etapa</p>
-              </div>
-            </div>
-
-            {/* Equipment Cards */}
-            <div className="space-y-3">
-              {equipment.map((item, index) => (
-                <motion.button
-                  key={item.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                  onClick={() => setSelectedEquipment(index)}
-                  className={`w-full text-left p-4 rounded-xl transition-all duration-300 group ${
-                    selectedEquipment === index
-                      ? "bg-[#C0111F] shadow-lg shadow-[#C0111F]/20"
-                      : "bg-white/5 hover:bg-white/10 border border-white/10"
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    {/* Icon */}
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
-                      selectedEquipment === index
-                        ? "bg-white/20"
-                        : "bg-[#C0111F]/20"
-                    }`}>
-                      <item.icon className={`w-5 h-5 transition-colors duration-300 ${
-                        selectedEquipment === index ? "text-white" : "text-[#C0111F]"
-                      }`} />
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <h4 className={`font-semibold transition-colors duration-300 ${
-                          selectedEquipment === index ? "text-white" : "text-white"
-                        }`}>
-                          {item.title}
-                        </h4>
-                        <span className={`text-xs px-2 py-1 rounded-full transition-colors duration-300 ${
-                          selectedEquipment === index
-                            ? "bg-white/20 text-white"
-                            : "bg-[#C0111F]/20 text-[#C0111F]"
-                        }`}>
-                          {item.category}
-                        </span>
-                      </div>
-                      <p className={`text-sm leading-relaxed transition-colors duration-300 ${
-                        selectedEquipment === index ? "text-white/80" : "text-[#A0A0A0]"
-                      }`}>
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.button>
-              ))}
-            </div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.7 }}
-              className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/10"
-            >
-              <div className="text-center">
-                <p className="text-3xl font-bold text-[#C0111F]">7+</p>
-                <p className="text-[#A0A0A0] text-sm">Equipamentos</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-[#C0111F]">100%</p>
-                <p className="text-[#A0A0A0] text-sm">Calibrados</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-[#C0111F]">GMG</p>
-                <p className="text-[#A0A0A0] text-sm">Certificado</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
+          key={current}
+          className="h-full bg-[#C0111F]"
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 1.5, ease: "linear" }}
+        />
       </div>
     </section>
   )
