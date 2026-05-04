@@ -3,7 +3,6 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Users, Award, Briefcase, GraduationCap } from "lucide-react"
-import Image from "next/image"
 
 const teamHighlights = [
   {
@@ -14,7 +13,7 @@ const teamHighlights = [
   },
   {
     icon: Award,
-    value: "38+",
+    value: "40+",
     label: "Anos de Experiência",
     description: "Expertise consolidada no mercado",
   },
@@ -70,19 +69,32 @@ export function TeamSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative"
           >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/equipe.jpg"
-                alt="Equipe da Cartonagem Circulus"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-[#F0F0F0] flex items-center justify-center">
+              {/* Abstract team illustration placeholder */}
+              <div className="w-full h-full flex flex-col items-center justify-center gap-6 p-8">
+                {/* Row of avatar circles */}
+                <div className="flex items-end gap-4">
+                  {[48, 56, 64, 56, 48].map((size, i) => (
+                    <div
+                      key={i}
+                      className="rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0"
+                      style={{ width: size, height: size }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" className="text-[#BDBDBD]" style={{ width: size * 0.55, height: size * 0.55 }}>
+                        <circle cx="12" cy="8" r="4" fill="currentColor" />
+                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" fill="currentColor" />
+                      </svg>
+                    </div>
+                  ))}
+                </div>
+                <div className="text-center">
+                  <p className="text-[#909090] text-sm font-medium">Foto da equipe</p>
+                  <p className="text-[#BDBDBD] text-xs mt-1">A ser inserida</p>
+                </div>
+              </div>
+
               {/* Badge */}
-              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg">
+              <div className="absolute bottom-6 left-6 bg-white px-5 py-3 rounded-xl shadow-lg border border-[#E5E5E5]">
                 <p className="text-[#C0111F] font-bold text-lg">Equipe Circulu&apos;s</p>
                 <p className="text-[#606060] text-sm">Juntos desde 1986</p>
               </div>

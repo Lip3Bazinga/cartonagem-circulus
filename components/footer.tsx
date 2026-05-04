@@ -100,7 +100,7 @@ export function Footer() {
               </p>
               <p className="text-[#606060]">
                 <span className="text-[#0D0D0D] font-medium">E-mail:</span><br />
-                <a href="mailto:circulus@cartonagemcirculus.com.br" className="hover:text-[#C0111F] transition-colors break-all">circulus@cartonagemcirculus.com.br</a>
+                <span className="text-[#909090] italic">E-mail comercial a definir</span>
               </p>
               <p className="text-[#606060]">
                 <span className="text-[#0D0D0D] font-medium">Endereço:</span><br />

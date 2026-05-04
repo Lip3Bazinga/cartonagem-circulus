@@ -10,7 +10,7 @@ const stats = [
   { value: 1986, suffix: "", label: "Desde", isYear: true },
   { value: 9000, suffix: "+", label: "m² de Área", prefix: "" },
   { value: 12, suffix: "+", label: "Segmentos Atendidos" },
-  { value: 38, suffix: "+", label: "Anos de Mercado" },
+  { value: 40, suffix: "+", label: "Anos de Mercado" },
 ]
 
 const valores = [
@@ -42,8 +42,8 @@ export function AboutSection() {
           <span className="text-[#C0111F] text-sm font-semibold tracking-widest uppercase mb-4 block">
             Nossa História
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight leading-tight">
-            MAIS DE 30 ANOS<br />
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D0D0D] tracking-tight leading-tight">
+            MAIS DE 40 ANOS<br />
             <span className="text-[#C0111F]">PRODUZINDO EXCELÊNCIA</span>
           </h2>
         </motion.div>
@@ -70,7 +70,7 @@ export function AboutSection() {
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-[#C0111F] text-white px-6 py-4 rounded-xl shadow-lg hidden md:block">
-              <span className="text-3xl font-bold">38+</span>
+              <span className="text-3xl font-bold">40+</span>
               <span className="block text-sm">Anos de História</span>
             </div>
           </motion.div>
@@ -81,11 +81,17 @@ export function AboutSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-[#606060] text-lg leading-relaxed mb-6">
-              Instalada na cidade de Franca, interior do estado de São Paulo, a história da Cartonagem Circulu&apos;s revela uma trajetória de luta e persistência dos empreendedores que a criaram, e dos funcionários e colaboradores que participaram do seu crescimento e consolidação no mercado.
+            <p className="text-[#606060] text-lg leading-relaxed mb-4">
+              Desde 1986 transformando papel em valor!
             </p>
-            <p className="text-[#606060] text-lg leading-relaxed mb-8">
-              Fundada no ano de 1986 pelo empresário Antônio Ananias, a Circulu&apos;s surge em um período de grande demanda por embalagens. Com uma estrutura de mais de 9.000 metros quadrados, a Cartonagem Circulu&apos;s investe continuamente na pesquisa dos melhores materiais, equipamentos de alta tecnologia e em profissionais qualificados para produção de embalagens personalizadas de papel cartão, micro ondulado e papelão.
+            <p className="text-[#606060] text-base leading-relaxed mb-4">
+              Nascemos no polo calçadista de Franca, atendendo às demandas por embalagens nesse mercado e hoje levamos nossas soluções para todo o Brasil, para diversos segmentos com a mesma precisão que nos trouxe até aqui.
+            </p>
+            <p className="text-[#606060] text-base leading-relaxed mb-4">
+              Com um olhar constante no futuro e foco total em qualidade e inovação, nossa produção é planejada para entregar o que há de melhor em embalagens personalizadas para seu produto e otimizar sua logística. Com uma estrutura com mais de 9.000m², a Cartonagem Circulu&apos;s está preparada para grandes desafios.
+            </p>
+            <p className="text-[#606060] text-base leading-relaxed mb-8">
+              Seja em papel cartão ou micro-ondulado, somos o parceiro estratégico para o seu negócio unindo qualidade, agilidade na entrega e sustentabilidade. Inove na forma de apresentar seus produtos. Conheça nossas soluções.
             </p>
             
             {/* Stats inline */}

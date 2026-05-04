@@ -8,44 +8,44 @@ import Image from "next/image"
 const equipment = [
   {
     icon: Printer,
-    title: "Impressora Roland 800",
-    description: "Impressão digital de grande formato para provas e pequenas tiragens",
+    title: "Impressão digital de grande formato",
+    description: "Provas e pequenas tiragens com alta fidelidade de cores e detalhes",
     category: "Impressão",
   },
   {
     icon: Printer,
-    title: "Impressora KBA Rapida",
-    description: "Impressão offset de alta velocidade com qualidade gráfica superior",
+    title: "Impressão offset de alta velocidade",
+    description: "Qualidade gráfica superior em grandes volumes com consistência total",
     category: "Impressão",
   },
   {
     icon: Layers,
-    title: "Acopladora ASPIRE cs1416",
-    description: "Equipamento de acabamento e acoplagem de alta precisão",
+    title: "Acoplagem de alta precisão",
+    description: "Acabamento e acoplagem com encaixe perfeito para embalagens complexas",
     category: "Acabamento",
   },
   {
     icon: Package,
-    title: "Coladeira Bobst Expert",
-    description: "Colagem automática de caixas com máxima precisão",
+    title: "Colagem automática de caixas",
+    description: "Montagem com máxima precisão e velocidade para grandes volumes",
     category: "Montagem",
   },
   {
     icon: Scissors,
-    title: "Bobst Commercial",
-    description: "Corte e vinco de última geração para embalagens complexas",
+    title: "Corte e vinco de última geração",
+    description: "Cortes precisos e vincos perfeitos para qualquer formato de embalagem",
     category: "Corte",
   },
   {
     icon: Monitor,
-    title: "Estúdio de Pré-Impressão",
-    description: "Setup completo para desenvolvimento e aprovação de artes",
+    title: "Estúdio de pré-impressão",
+    description: "Desenvolvimento e aprovação de artes com workflow profissional",
     category: "Design",
   },
   {
     icon: Palette,
-    title: "Gerenciamento de Cores GMG",
-    description: "Sistema de calibração e gestão de cores profissional",
+    title: "Gestão de cores profissional",
+    description: "Calibração e padronização de cores para resultados consistentes e certificados",
     category: "Qualidade",
   },
 ]
@@ -53,23 +53,23 @@ const equipment = [
 const sliderImages = [
   {
     src: "/images/maquinas/impressora-offset.jpg",
-    alt: "Impressora Offset KBA Rapida",
-    caption: "Impressora KBA Rapida",
+    alt: "Impressão offset de alta velocidade",
+    caption: "Impressão offset de alta velocidade",
   },
   {
     src: "/images/maquinas/corte-vinco.jpg",
-    alt: "Bobst Commercial - Corte e Vinco",
-    caption: "Bobst Commercial",
+    alt: "Corte e vinco de última geração",
+    caption: "Corte e vinco de última geração",
   },
   {
     src: "/images/maquinas/coladeira.jpg",
-    alt: "Coladeira Bobst Expert",
-    caption: "Coladeira Bobst Expert",
+    alt: "Colagem automática de caixas",
+    caption: "Colagem automática de caixas",
   },
   {
     src: "/images/maquinas/pre-impressao.jpg",
-    alt: "Estúdio de Pré-Impressão",
-    caption: "Estúdio de Pré-Impressão",
+    alt: "Estúdio de pré-impressão",
+    caption: "Estúdio de pré-impressão",
   },
 ]
 

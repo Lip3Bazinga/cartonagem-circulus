@@ -42,7 +42,7 @@ export function HeroSection() {
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
               >
                 EMBALAGENS QUE
               </motion.h1>
@@ -52,7 +52,7 @@ export function HeroSection() {
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight"
               >
                 <span className="text-[#0D0D0D]">PROTEGEM E </span>
                 <span className="text-[#C0111F]">IMPRESSIONAM</span>
@@ -66,8 +66,8 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg md:text-xl text-[#606060] max-w-xl mb-10 leading-relaxed"
             >
-              Soluções em embalagens personalizadas de papel cartão, micro ondulado e papelão. 
-              Mais de 38 anos de excelência, tecnologia de ponta e qualidade certificada ISO 9001 e FSC.
+              Soluções em embalagens personalizadas de papel cartão e micro ondulado.
+              Mais de 40 anos de excelência, tecnologia de ponta e qualidade certificada ISO 9001, FSC e FAMA.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -128,7 +128,7 @@ export function HeroSection() {
                   </div>
                   <div>
                     <p className="font-bold text-[#0D0D0D]">Certificado</p>
-                    <p className="text-sm text-[#606060]">ISO 9001 + FSC</p>
+                    <p className="text-sm text-[#606060]">ISO 9001 + FSC + FAMA</p>
                   </div>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export function HeroSection() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               <div className="flex items-center justify-center md:justify-start gap-4">
                 <div>
-                  <AnimatedCounter end={38} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
+                  <AnimatedCounter end={40} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
                   <p className="text-sm text-[#606060]">Anos de Mercado</p>
                 </div>
               </div>
@@ -168,7 +168,7 @@ export function HeroSection() {
               <div className="flex items-center justify-center md:justify-end gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
                 <div>
                   <p className="text-3xl font-bold text-[#C0111F]">ISO</p>
-                  <p className="text-sm text-[#606060]">9001 + FSC Certificado</p>
+                  <p className="text-sm text-[#606060]">9001 + FSC + FAMA</p>
                 </div>
               </div>
             </div>

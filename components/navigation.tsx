@@ -32,10 +32,10 @@ export function Navigation() {
       {/* Top Bar with Phone */}
       <div className={`fixed top-0 left-0 right-0 z-50 bg-[#C0111F] py-2 transition-all duration-300 ${isScrolled ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"}`}>
         <div className="container mx-auto px-6 flex items-center justify-center lg:justify-end gap-6">
-          <a href="mailto:circulus@cartonagemcirculus.com.br" className="flex items-center gap-2 text-white text-sm font-medium hover:text-white/80 transition-colors">
+          <span className="hidden sm:flex items-center gap-2 text-white/80 text-sm italic">
             <Mail className="w-4 h-4" />
-            <span className="hidden sm:inline">circulus@cartonagemcirculus.com.br</span>
-          </a>
+            E-mail comercial a definir
+          </span>
           <span className="hidden sm:block text-white/40">|</span>
           <a href="tel:+551637130500" className="flex items-center gap-2 text-white text-sm font-medium hover:text-white/80 transition-colors">
             <Phone className="w-4 h-4" />
