@@ -2,26 +2,28 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Award, TreePine, Sparkles } from "lucide-react"
 
 const certifications = [
   {
-    icon: Award,
+    logo: "/images/certs/iso9001.jpg",
     title: "ISO 9001",
     subtitle: "Sistema de Gestão da Qualidade",
-    description: "Certificação internacional que atesta nosso compromisso com a qualidade em todos os processos produtivos, garantindo consistência e excelência em cada embalagem produzida.",
+    description:
+      "Certificação internacional que atesta nosso compromisso com a qualidade em todos os processos produtivos, garantindo consistência e excelência em cada embalagem produzida.",
   },
   {
-    icon: TreePine,
+    logo: "/images/certs/fsc.jpg",
     title: "FSC®",
-    subtitle: "Forest Stewardship Council (Conselho de Manejo Florestal)",
-    description: "Certificação que garante que os materiais utilizados em nossas embalagens provêm de florestas manejadas de forma responsável, contribuindo para a preservação ambiental.",
+    subtitle: "Forest Stewardship Council",
+    description:
+      "Certificação que garante que os materiais utilizados em nossas embalagens provêm de florestas manejadas de forma responsável, contribuindo para a preservação ambiental.",
   },
   {
-    icon: Sparkles,
+    logo: "/images/certs/fama.jpg",
     title: "FAMA",
     subtitle: "Autorização Disney",
-    description: "Autorização oficial FAMA que nos permite produzir embalagens com personagens Disney, atestando nossa responsabilidade social, condições de trabalho e padrões de qualidade internacionais.",
+    description:
+      "Autorização oficial FAMA que nos permite produzir embalagens com personagens Disney, atestando nossa responsabilidade social, condições de trabalho e padrões de qualidade internacionais.",
   },
 ]
 
@@ -61,26 +63,32 @@ export function CertificationsSection() {
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group"
             >
-              <div className="bg-white rounded-2xl p-8 h-full relative overflow-hidden border border-[#E5E5E5] shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="bg-white rounded-2xl p-8 h-full relative overflow-hidden border border-[#E5E5E5] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
                 {/* Top accent line */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-[#C0111F]" />
-                
-                {/* Badge Icon */}
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 rounded-2xl bg-[#C0111F]/10 flex items-center justify-center group-hover:bg-[#C0111F]/20 transition-colors duration-300 mx-auto">
-                    <cert.icon className="w-10 h-10 text-[#C0111F]" />
+
+                {/* Logo */}
+                <div className="flex items-center justify-center mb-6">
+                  <div className="w-28 h-28 rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center overflow-hidden p-3 group-hover:border-[#C0111F]/30 transition-colors duration-300">
+                    <img
+                      src={cert.logo}
+                      alt={`Certificação ${cert.title}`}
+                      width={88}
+                      height={88}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                 </div>
-                
+
                 {/* Content */}
-                <div className="relative text-center">
-                  <h3 className="text-2xl font-bold text-[#0D0D0D] mb-2 group-hover:text-[#C0111F] transition-colors duration-300">
+                <div className="text-center flex flex-col flex-1">
+                  <h3 className="text-2xl font-bold text-[#0D0D0D] mb-1 group-hover:text-[#C0111F] transition-colors duration-300">
                     {cert.title}
                   </h3>
                   <p className="text-[#C0111F] text-sm font-medium mb-4">
                     {cert.subtitle}
                   </p>
-                  <p className="text-[#606060] leading-relaxed text-sm">
+                  <p className="text-[#606060] leading-relaxed text-sm flex-1">
                     {cert.description}
                   </p>
                 </div>

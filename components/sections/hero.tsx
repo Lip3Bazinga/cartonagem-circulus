@@ -6,27 +6,6 @@ import { Button } from "@/components/ui/button"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 import Image from "next/image"
 
-const certifications = [
-  {
-    src: "/images/certs/iso9001.jpg",
-    alt: "Certificação ISO 9001",
-    label: "ISO 9001",
-    sub: "Gestão da Qualidade",
-  },
-  {
-    src: "/images/certs/fsc.jpg",
-    alt: "Certificação FSC",
-    label: "FSC®",
-    sub: "Certificação Florestal",
-  },
-  {
-    src: "/images/certs/fama.jpg",
-    alt: "Autorização FAMA Disney",
-    label: "FAMA",
-    sub: "Autorização Disney",
-  },
-]
-
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F5F5]">
@@ -96,7 +75,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-start gap-4 mb-12"
+              className="flex flex-col sm:flex-row items-start gap-4"
             >
               <Button
                 asChild
@@ -119,39 +98,6 @@ export function HeroSection() {
                   (16) 3713-0500
                 </a>
               </Button>
-            </motion.div>
-
-            {/* Certification logos row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.55 }}
-              className="flex items-center gap-2"
-            >
-              <span className="text-xs text-[#909090] uppercase tracking-wider mr-2 whitespace-nowrap">Certificado por</span>
-              <div className="flex items-center gap-4">
-                {certifications.map((cert) => (
-                  <div
-                    key={cert.label}
-                    className="group flex items-center gap-2 bg-white border border-[#E5E5E5] rounded-xl px-3 py-2 shadow-sm hover:shadow-md hover:border-[#C0111F]/30 transition-all duration-300"
-                    title={cert.sub}
-                  >
-                    <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 bg-[#F5F5F5]">
-                      <img
-                        src={cert.src}
-                        alt={cert.alt}
-                        width={32}
-                        height={32}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-[#0D0D0D] leading-none">{cert.label}</p>
-                      <p className="text-[10px] text-[#909090] leading-tight mt-0.5">{cert.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
 
@@ -208,18 +154,9 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="flex items-center justify-center md:justify-end gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
-                <div className="flex items-center gap-3">
-                  {certifications.map((cert) => (
-                    <div key={cert.label} className="w-9 h-9 rounded-lg overflow-hidden bg-[#F5F5F5] border border-[#E5E5E5]" title={cert.label}>
-                      <img
-                        src={cert.src}
-                        alt={cert.alt}
-                        width={36}
-                        height={36}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  ))}
+                <div>
+                  <p className="text-3xl font-bold text-[#C0111F]">ISO</p>
+                  <p className="text-sm text-[#606060]">9001 + FSC + FAMA</p>
                 </div>
               </div>
             </div>
