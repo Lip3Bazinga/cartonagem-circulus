@@ -44,7 +44,7 @@ export function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
               >
-                EMBALAGENS QUE
+                Embalagens que
               </motion.h1>
             </div>
             <div className="overflow-hidden mb-6">
@@ -54,8 +54,8 @@ export function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight"
               >
-                <span className="text-[#0D0D0D]">PROTEGEM E </span>
-                <span className="text-[#C0111F]">IMPRESSIONAM</span>
+                <span className="text-[#0D0D0D]">Protegem e </span>
+                <span className="text-[#C0111F]">Impressionam</span>
               </motion.h1>
             </div>
 
