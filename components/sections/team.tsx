@@ -53,95 +53,46 @@ export function TeamSection() {
             Nossos Colaboradores
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight mb-6">
-            NOSSO TIME
+            Nosso Time
           </h2>
           <p className="text-[#606060] text-lg leading-relaxed max-w-3xl mx-auto">
             O sucesso da Cartonagem Circulu&apos;s é construído por uma equipe de profissionais altamente qualificados e comprometidos com a excelência em cada etapa do processo produtivo.
           </p>
         </motion.div>
 
-        {/* Main Content - Image and Highlights */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left - Team Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative"
-          >
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-[#F0F0F0] flex items-center justify-center">
-              {/* Abstract team illustration placeholder */}
-              <div className="w-full h-full flex flex-col items-center justify-center gap-6 p-8">
-                {/* Row of avatar circles */}
-                <div className="flex items-end gap-4">
-                  {[48, 56, 64, 56, 48].map((size, i) => (
-                    <div
-                      key={i}
-                      className="rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0"
-                      style={{ width: size, height: size }}
-                    >
-                      <svg viewBox="0 0 24 24" fill="none" className="text-[#BDBDBD]" style={{ width: size * 0.55, height: size * 0.55 }}>
-                        <circle cx="12" cy="8" r="4" fill="currentColor" />
-                        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" fill="currentColor" />
-                      </svg>
-                    </div>
-                  ))}
-                </div>
-                <div className="text-center">
-                  <p className="text-[#909090] text-sm font-medium">Foto da equipe</p>
-                  <p className="text-[#BDBDBD] text-xs mt-1">A ser inserida</p>
-                </div>
+        {/* Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-center max-w-3xl mx-auto mb-14"
+        >
+          <h3 className="text-2xl font-bold text-[#0D0D0D] mb-4">
+            Pessoas que fazem a diferença
+          </h3>
+          <p className="text-[#606060] leading-relaxed">
+            Nossa equipe é formada por profissionais experientes e constantemente atualizados com as mais recentes tendências do mercado gráfico. Cada colaborador é peça fundamental para garantir a qualidade e excelência que nossos clientes esperam.
+          </p>
+        </motion.div>
+
+        {/* Highlights Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {teamHighlights.map((item, index) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+              className="bg-[#F5F5F5] rounded-xl p-6 text-center hover:shadow-md transition-all duration-300 group"
+            >
+              <div className="w-12 h-12 rounded-xl bg-[#C0111F]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C0111F]/20 transition-colors duration-300">
+                <item.icon className="w-6 h-6 text-[#C0111F]" />
               </div>
-
-              {/* Badge */}
-              <div className="absolute bottom-6 left-6 bg-white px-5 py-3 rounded-xl shadow-lg border border-[#E5E5E5]">
-                <p className="text-[#C0111F] font-bold text-lg">Equipe Circulu&apos;s</p>
-                <p className="text-[#606060] text-sm">Juntos desde 1986</p>
-              </div>
-            </div>
-
-            {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#C0111F]/10 rounded-2xl -z-10" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#C0111F]/5 rounded-xl -z-10" />
-          </motion.div>
-
-          {/* Right - Highlights */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-2xl font-bold text-[#0D0D0D] mb-6">
-              Pessoas que fazem a diferença
-            </h3>
-            <p className="text-[#606060] leading-relaxed mb-8">
-              Nossa equipe é formada por profissionais experientes e constantemente atualizados com as mais recentes tendências do mercado gráfico. Cada colaborador é peça fundamental para garantir a qualidade e excelência que nossos clientes esperam.
-            </p>
-
-            {/* Highlights Grid */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              {teamHighlights.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="bg-[#F5F5F5] rounded-xl p-5 hover:shadow-md transition-all duration-300 group"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#C0111F]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#C0111F]/20 transition-colors duration-300">
-                      <item.icon className="w-6 h-6 text-[#C0111F]" />
-                    </div>
-                    <div>
-                      <span className="text-2xl font-bold text-[#C0111F]">{item.value}</span>
-                      <p className="text-sm font-semibold text-[#0D0D0D]">{item.label}</p>
-                      <p className="text-xs text-[#606060] mt-1">{item.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+              <span className="text-2xl font-bold text-[#C0111F] block">{item.value}</span>
+              <p className="text-sm font-semibold text-[#0D0D0D] mt-1">{item.label}</p>
+              <p className="text-xs text-[#606060] mt-1">{item.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -26,7 +26,7 @@ export function LocationSection() {
             Onde Estamos
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight mb-6">
-            LOCALIZAÇÃO
+            Localização
           </h2>
           <p className="text-[#606060] text-lg leading-relaxed max-w-3xl mx-auto">
             Localizada estrategicamente em Franca, São Paulo, a Cartonagem Circulu&apos;s está preparada para atender clientes em todo o Brasil com agilidade e eficiência.

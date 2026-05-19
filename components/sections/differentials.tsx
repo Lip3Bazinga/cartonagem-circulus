@@ -18,7 +18,7 @@ const differentials = [
   {
     icon: Layers,
     title: "Variedade de Soluções",
-    description: "12 segmentos atendidos, do alimentício ao automotivo, com embalagens em papel cartão, micro ondulado e papelão com acabamentos diversificados.",
+    description: "10 segmentos atendidos, do alimentício ao automotivo, com embalagens em papel cartão, micro ondulado e papelão com acabamentos diversificados.",
   },
   {
     icon: HeartHandshake,
@@ -49,7 +49,7 @@ export function DifferentialsSection() {
             Por que nos escolher
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight">
-            POR QUE ESCOLHER A CIRCULU&apos;S?
+            Por Que Escolher A Circulu&apos;s?
           </h2>
         </motion.div>
 
@@ -66,14 +66,14 @@ export function DifferentialsSection() {
               <div className="bg-white rounded-2xl p-8 h-full flex gap-6 border border-[#E5E5E5] shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
                 {/* Red accent line on hover */}
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#C0111F] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 {/* Icon */}
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 rounded-xl bg-[#C0111F]/10 flex items-center justify-center group-hover:bg-[#C0111F]/20 transition-colors duration-300">
                     <diff.icon className="w-8 h-8 text-[#C0111F]" />
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div>
                   <h3 className="text-xl font-bold text-[#0D0D0D] mb-3 group-hover:text-[#C0111F] transition-colors duration-300">

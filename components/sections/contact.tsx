@@ -1,8 +1,8 @@
 "use client"
 
-import { useRef, useState } from "react"
-import { motion, useInView } from "framer-motion"
-import { Send, Phone, Mail, MessageCircle } from "lucide-react"
+import { useRef, useState, useEffect } from "react"
+import { motion, useInView, AnimatePresence } from "framer-motion"
+import { Send, Phone, Mail, MessageCircle, ChevronDown, Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -24,8 +24,20 @@ const segments = [
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
   const [selectedSegment, setSelectedSegment] = useState("")
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   return (
     <section
@@ -45,7 +57,7 @@ export function ContactSection() {
             Entre em Contato
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight mb-6">
-            VAMOS CRIAR ALGO JUNTOS?
+            Vamos Criar Algo Juntos?
           </h2>
           <p className="text-[#606060] text-lg max-w-2xl mx-auto">
             Entre em contato e receba um orçamento personalizado para o seu projeto de embalagem.
@@ -97,22 +109,60 @@ export function ContactSection() {
                       className="bg-white border-[#E5E5E5] text-[#0D0D0D] placeholder:text-[#909090] focus:border-[#C0111F] transition-colors"
                     />
                   </div>
-                  <div>
+                  <div className="relative" ref={dropdownRef}>
                     <label className="block text-[#0D0D0D] text-sm font-medium mb-2">
                       Segmento
                     </label>
-                    <select
-                      value={selectedSegment}
-                      onChange={(e) => setSelectedSegment(e.target.value)}
-                      className="w-full h-10 rounded-md bg-white border border-[#E5E5E5] text-[#0D0D0D] px-3 focus:border-[#C0111F] focus:outline-none transition-colors"
+                    <button
+                      type="button"
+                      onClick={() => setDropdownOpen((o) => !o)}
+                      className={`w-full h-10 rounded-md bg-white border px-3 flex items-center justify-between text-sm transition-colors ${
+                        dropdownOpen ? "border-[#C0111F]" : "border-[#E5E5E5] hover:border-[#C0111F]/50"
+                      } ${selectedSegment ? "text-[#0D0D0D]" : "text-[#909090]"}`}
                     >
-                      <option value="" className="text-[#909090]">Selecione seu segmento</option>
-                      {segments.map((segment) => (
-                        <option key={segment} value={segment}>
-                          {segment}
-                        </option>
-                      ))}
-                    </select>
+                      <span>{selectedSegment || "Selecione seu segmento"}</span>
+                      <motion.span
+                        animate={{ rotate: dropdownOpen ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ChevronDown className="w-4 h-4 text-[#606060]" />
+                      </motion.span>
+                    </button>
+
+                    <AnimatePresence>
+                      {dropdownOpen && (
+                        <motion.ul
+                          initial={{ opacity: 0, y: -6, scaleY: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                          exit={{ opacity: 0, y: -6, scaleY: 0.95 }}
+                          transition={{ duration: 0.15, ease: "easeOut" }}
+                          style={{ originY: 0 }}
+                          className="absolute z-50 top-[calc(100%+4px)] left-0 right-0 bg-white border border-[#E5E5E5] rounded-xl shadow-lg overflow-y-auto max-h-52 py-1"
+                        >
+                          {segments.map((segment) => (
+                            <li key={segment}>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setSelectedSegment(segment)
+                                  setDropdownOpen(false)
+                                }}
+                                className={`w-full flex items-center justify-between px-4 py-2 text-sm text-left transition-colors hover:bg-[#FDF0F1] ${
+                                  selectedSegment === segment
+                                    ? "text-[#C0111F] font-semibold"
+                                    : "text-[#0D0D0D]"
+                                }`}
+                              >
+                                {segment}
+                                {selectedSegment === segment && (
+                                  <Check className="w-4 h-4 text-[#C0111F] flex-shrink-0" />
+                                )}
+                              </button>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
 
@@ -182,7 +232,7 @@ export function ContactSection() {
               </div>
               <div>
                 <p className="text-[#0D0D0D] font-semibold">E-mail</p>
-                <p className="text-[#909090] text-sm italic">E-mail comercial a definir</p>
+                <p className="text-[#909090] text-[12px] italic">comercial@cartonagemcirculus.com.br</p>
               </div>
             </div>
           </motion.div>

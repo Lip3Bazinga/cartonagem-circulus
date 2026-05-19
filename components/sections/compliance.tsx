@@ -25,7 +25,7 @@ const policies = [
     title: "Política da Qualidade",
     summary: "Compromisso com a excelência em todos os processos produtivos.",
     content:
-      "A Cartonagem Circulu's tem como política produzir embalagens personalizadas que atendam plenamente às necessidades e expectativas dos clientes, por meio da melhoria contínua dos processos, do desenvolvimento de colaboradores e do investimento constante em tecnologia. Buscamos a conformidade com os requisitos da NBR ISO 9001 e com os requisitos legais e regulamentares aplicáveis ao nosso negócio, garantindo a satisfação dos clientes e a sustentabilidade da organização.",
+      "A Cartonagem Circulu's se compromete em produzir embalagens personalizadas, focada na satisfação dos clientes com agilidade na entrega e atendimento aos requisitos de seus produtos. Para isso, a empresa conta com a gestão da qualidade em busca da melhoria contínua de seus produtos e serviços.",
   },
   {
     icon: Leaf,

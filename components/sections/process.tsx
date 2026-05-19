@@ -53,7 +53,7 @@ export function ProcessSection() {
             Etapas de Produção
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight">
-            NOSSO PROCESSO
+            Nosso Processo
           </h2>
         </motion.div>
 

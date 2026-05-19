@@ -12,7 +12,7 @@ const certifications = [
       "Certificação internacional que atesta nosso compromisso com a qualidade em todos os processos produtivos, garantindo consistência e excelência em cada embalagem produzida.",
   },
   {
-    logo: "/images/certs/fsc.jpg",
+    logo: "/images/certs/fsc.png",
     title: "FSC®",
     subtitle: "Forest Stewardship Council",
     description:
@@ -49,7 +49,7 @@ export function CertificationsSection() {
             Certificações
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight">
-            QUALIDADE CERTIFICADA
+            Qualidade Certificada
           </h2>
         </motion.div>
 
@@ -69,11 +69,20 @@ export function CertificationsSection() {
 
                 {/* Logo */}
                 <div className="flex items-center justify-center mb-6">
-                  <div className="w-48 h-48 rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden group-hover:border-[#C0111F]/30 transition-colors duration-300">
+                  <div
+                    className={`rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden group-hover:border-[#C0111F]/30 transition-colors duration-300 flex items-center justify-center ${cert.title === "FSC®"
+                      ? "w-48 h-72"
+                      : "w-48 h-48"
+                      } ${cert.title === "FSC®" ? "p-2" : ""}`}
+                  >
                     <img
                       src={cert.logo}
                       alt={`Certificação ${cert.title}`}
-                      className="w-full h-full object-cover"
+                      className={
+                        cert.title === "FSC®"
+                          ? "w-full h-full object-contain"
+                          : "w-full h-full object-cover"
+                      }
                     />
                   </div>
                 </div>

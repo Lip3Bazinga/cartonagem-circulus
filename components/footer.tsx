@@ -14,7 +14,7 @@ const quickLinks = [
 
 const certifications = [
   { src: "/images/certs/iso9001.jpg", label: "ISO 9001" },
-  { src: "/images/certs/fsc.jpg", label: "FSC®" },
+  { src: "/images/certs/fsc.png", label: "FSC®" },
   { src: "/images/certs/fama.jpg", label: "FAMA/Disney" },
 ]
 
@@ -78,7 +78,7 @@ export function Footer() {
             <div className="flex gap-3">
               {certifications.map((cert) => (
                 <div key={cert.label} className="flex flex-col items-center gap-2">
-                  <div className="w-16 h-16 rounded-xl bg-white border border-[#E5E5E5] overflow-hidden shadow-sm">
+                  <div className="w-16 h-16 rounded-xl bg-red-500 border border-[#E5E5E5] overflow-hidden shadow-sm">
                     <img
                       src={cert.src}
                       alt={cert.label}

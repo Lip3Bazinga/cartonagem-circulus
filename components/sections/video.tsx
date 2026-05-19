@@ -1,20 +1,16 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-import { Maximize2, X } from "lucide-react"
+import { X } from "lucide-react"
+
+const YOUTUBE_EMBED_URL =
+  "https://www.youtube.com/embed/tQfnZ48ncTY?si=HMDG5hYgdkAZ2ncU"
 
 export function VideoSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  useEffect(() => {
-    if (isInView && videoRef.current) {
-      videoRef.current.play().catch(() => {})
-    }
-  }, [isInView])
 
   return (
     <>
@@ -52,7 +48,7 @@ export function VideoSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight"
             >
-              CONHEÇA A CARTONAGEM CIRCULU&apos;S
+              Conheça A Cartonagem Circulu&apos;s
             </motion.h2>
 
             <motion.p
@@ -69,15 +65,17 @@ export function VideoSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group"
+              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group cursor-pointer"
+              onClick={() => setIsModalOpen(true)}
             >
-              <video
-                ref={videoRef}
-                src="/video.mp4"
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover"
+              <iframe
+                src={YOUTUBE_EMBED_URL}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="w-full h-full"
               />
 
               {/* Corner decorations */}
@@ -85,15 +83,6 @@ export function VideoSection() {
               <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-[#C0111F]/60 rounded-tr pointer-events-none" />
               <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-[#C0111F]/60 rounded-bl pointer-events-none" />
               <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#C0111F]/60 rounded-br pointer-events-none" />
-
-              {/* Fullscreen button */}
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-[#C0111F] z-10"
-                aria-label="Assistir em tela cheia"
-              >
-                <Maximize2 className="w-5 h-5 text-white" />
-              </button>
             </motion.div>
           </div>
         </div>
@@ -115,11 +104,14 @@ export function VideoSection() {
             className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <video
-              src="/video.mp4"
-              autoPlay
-              controls
-              className="w-full h-full object-cover"
+            <iframe
+              src={`${YOUTUBE_EMBED_URL}&autoplay=1`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="w-full h-full"
             />
             <button
               onClick={() => setIsModalOpen(false)}

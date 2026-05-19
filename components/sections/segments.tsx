@@ -49,7 +49,7 @@ export function SegmentsSection() {
             Mercados
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight">
-            SEGMENTOS ATENDIDOS
+            Segmentos Atendidos
           </h2>
         </motion.div>
 

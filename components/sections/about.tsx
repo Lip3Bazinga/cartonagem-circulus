@@ -43,8 +43,8 @@ export function AboutSection() {
             Nossa História
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D0D0D] tracking-tight leading-tight">
-            MAIS DE 40 ANOS<br />
-            <span className="text-[#C0111F]">PRODUZINDO EXCELÊNCIA</span>
+            Mais De 40 Anos<br />
+            <span className="text-[#C0111F]">Produzindo Excelência</span>
           </h2>
         </motion.div>
 
@@ -59,7 +59,7 @@ export function AboutSection() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/empresa-fachada.jpg"
+                src="/images/about-banner.jpeg"
                 alt="Fachada da Cartonagem Circulus em Franca, SP"
                 fill
                 className="object-cover"
@@ -93,7 +93,7 @@ export function AboutSection() {
             <p className="text-[#606060] text-base leading-relaxed mb-8">
               Seja em papel cartão ou micro-ondulado, somos o parceiro estratégico para o seu negócio unindo qualidade, agilidade na entrega e sustentabilidade. Inove na forma de apresentar seus produtos. Conheça nossas soluções.
             </p>
-            
+
             {/* Stats inline */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {stats.map((stat, index) => (

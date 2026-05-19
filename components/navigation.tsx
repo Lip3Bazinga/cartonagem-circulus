@@ -57,7 +57,7 @@ export function Navigation() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <div className="relative">
-              <Image src="/logo.svg" alt="Circulus Logo" width={100} height={50} className="w-[250px] h-[40px] object-cover" />
+              <Image src="/logo_2.png" alt="Circulus Logo" width={100} height={150} className="w-[150px]  h-[100px] object-cover" />
             </div>
           </a>
 
