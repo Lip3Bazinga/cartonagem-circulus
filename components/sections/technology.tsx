@@ -181,9 +181,6 @@ export function TechnologySection() {
               <span className="inline-block text-xs font-semibold tracking-widest uppercase text-white/70 bg-white/20 px-3 py-1 rounded-full mb-3">
                 {slides[current].category}
               </span>
-              <h3 className="text-white font-bold text-lg md:text-xl leading-tight mb-2 drop-shadow">
-                {slides[current].title}
-              </h3>
               <p className="text-white/80 text-sm md:text-base leading-relaxed">
                 {slides[current].description}
               </p>
