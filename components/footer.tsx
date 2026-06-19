@@ -12,12 +12,6 @@ const quickLinks = [
   { label: "Contato", href: "#contato" },
 ]
 
-const certifications = [
-  { src: "/images/certs/iso9001.jpg", label: "ISO 9001" },
-  { src: "/images/certs/fsc.png", label: "FSC®" },
-  { src: "/images/certs/fama.jpg", label: "FAMA/Disney" },
-]
-
 const socialLinks = [
   { icon: Facebook, label: "Facebook", href: "https://fb.com/cartonagemcirculus" },
   { icon: Instagram, label: "Instagram", href: "https://instagram.com/cartonagemcirculus" },
@@ -30,11 +24,11 @@ export function Footer() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-[#C0111F]" />
 
       <div className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-8">
           {/* Column 1 - Logo & Social */}
           <div>
             <a href="#" className="flex items-center gap-2 mb-6 group">
-              <Image src="/logo.svg" alt="Circulus Logo" width={100} height={50} className="w-[250px] h-[40px] object-cover" />
+              <Image src="/images/LOGO CIRCULUS COMPLETO.png" alt="Circulus Logo" width={130} height={100} className="w-[130px] h-auto object-contain" />
             </a>
             <p className="text-[#606060] text-sm leading-relaxed mb-6">
               Indústria de Embalagens Personalizadas desde 1986
@@ -72,26 +66,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 - Certifications */}
-          <div>
-            <h4 className="text-[#0D0D0D] font-semibold mb-6">Certificações</h4>
-            <div className="flex gap-3">
-              {certifications.map((cert) => (
-                <div key={cert.label} className="flex flex-col items-center gap-2">
-                  <div className="w-16 h-16 rounded-xl bg-red-500 border border-[#E5E5E5] overflow-hidden shadow-sm">
-                    <img
-                      src={cert.src}
-                      alt={cert.label}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="text-[#606060] text-xs text-center leading-tight">{cert.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Column 4 - Contact */}
+          {/* Column 3 - Contact */}
           <div>
             <h4 className="text-[#0D0D0D] font-semibold mb-6">Contato</h4>
             <div className="space-y-4 text-sm">
@@ -101,7 +76,7 @@ export function Footer() {
               </p>
               <p className="text-[#606060]">
                 <span className="text-[#0D0D0D] font-medium">E-mail:</span><br />
-                <span className="text-[#909090] italic">E-mail comercial a definir</span>
+                <a href="mailto:comercial@cartonagemcirculus.com.br" className="hover:text-[#C0111F] transition-colors">comercial@cartonagemcirculus.com.br</a>
               </p>
               <p className="text-[#606060]">
                 <span className="text-[#0D0D0D] font-medium">Endereço:</span><br />

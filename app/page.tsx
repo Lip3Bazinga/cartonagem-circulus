@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/sections/hero"
 import { VideoSection } from "@/components/sections/video"
 import { AboutSection } from "@/components/sections/about"
 import { TechnologySection } from "@/components/sections/technology"
-import { ProductsSection } from "@/components/sections/products"
 import { CertificationsSection } from "@/components/sections/certifications"
 import { DifferentialsSection } from "@/components/sections/differentials"
 import { TeamSection } from "@/components/sections/team"
@@ -21,7 +20,6 @@ export default function Home() {
       <VideoSection />
       <AboutSection />
       <TechnologySection />
-      <ProductsSection />
       <CertificationsSection />
       <DifferentialsSection />
       <TeamSection />

@@ -2,12 +2,13 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { 
-  UtensilsCrossed, 
-  Footprints, 
-  Home, 
-  Puzzle, 
-  Wrench, 
+import Image from "next/image"
+import {
+  UtensilsCrossed,
+  Footprints,
+  Home,
+  Puzzle,
+  Wrench,
   LayoutGrid,
   Wine as GlassWater,
   CookingPot,
@@ -15,7 +16,10 @@ import {
   Building
 } from "lucide-react"
 
-const segments = [
+// `images`: assim que o cliente enviar as fotos das embalagens por categoria
+// (ao menos 2 por segmento), basta preencher o array aqui — o card passa a
+// exibir as fotos automaticamente no lugar do ícone.
+const segments: { icon: typeof UtensilsCrossed; label: string; images?: string[] }[] = [
   { icon: UtensilsCrossed, label: "Alimentos" },
   { icon: Footprints, label: "Calçados" },
   { icon: Home, label: "Utilidades Domésticas" },
@@ -63,17 +67,32 @@ export function SegmentsSection() {
               transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group"
             >
-              <div className="bg-white rounded-2xl p-6 flex flex-col items-center justify-center aspect-square border border-[#E5E5E5] shadow-sm hover:shadow-md hover:border-[#C0111F]/30 transition-all duration-300 cursor-pointer">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-full bg-[#C0111F]/10 flex items-center justify-center mb-4 group-hover:bg-[#C0111F]/20 group-hover:scale-110 transition-all duration-300">
-                  <segment.icon className="w-7 h-7 text-[#C0111F]" />
+              {segment.images && segment.images.length >= 2 ? (
+                <div className="bg-white rounded-2xl p-3 border border-[#E5E5E5] shadow-sm hover:shadow-md hover:border-[#C0111F]/30 transition-all duration-300 cursor-pointer">
+                  <div className="grid grid-cols-2 gap-1.5 mb-3">
+                    {segment.images.slice(0, 2).map((src, i) => (
+                      <div key={i} className="relative aspect-square rounded-lg overflow-hidden">
+                        <Image src={src} alt={`${segment.label} ${i + 1}`} fill className="object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[#0D0D0D] text-xs sm:text-sm font-medium text-center group-hover:text-[#C0111F] transition-colors duration-300 leading-tight">
+                    {segment.label}
+                  </p>
                 </div>
-                
-                {/* Label */}
-                <p className="text-[#0D0D0D] text-xs sm:text-sm font-medium text-center group-hover:text-[#C0111F] transition-colors duration-300 leading-tight">
-                  {segment.label}
-                </p>
-              </div>
+              ) : (
+                <div className="bg-white rounded-2xl p-6 flex flex-col items-center justify-center aspect-square border border-[#E5E5E5] shadow-sm hover:shadow-md hover:border-[#C0111F]/30 transition-all duration-300 cursor-pointer">
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-full bg-[#C0111F]/10 flex items-center justify-center mb-4 group-hover:bg-[#C0111F]/20 group-hover:scale-110 transition-all duration-300">
+                    <segment.icon className="w-7 h-7 text-[#C0111F]" />
+                  </div>
+
+                  {/* Label */}
+                  <p className="text-[#0D0D0D] text-xs sm:text-sm font-medium text-center group-hover:text-[#C0111F] transition-colors duration-300 leading-tight">
+                    {segment.label}
+                  </p>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

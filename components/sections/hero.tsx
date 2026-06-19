@@ -25,17 +25,6 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}
           <div>
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-white shadow-sm border border-[#E5E5E5] px-4 py-2 rounded-full mb-8"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#C0111F] animate-pulse" />
-              <span className="text-sm text-[#606060]">Desde 1986 — Franca, SP</span>
-            </motion.div>
-
             {/* Headline */}
             <div className="overflow-hidden mb-4">
               <motion.h1
@@ -44,7 +33,7 @@ export function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
               >
-                Embalagens que
+                Sua Marca
               </motion.h1>
             </div>
             <div className="overflow-hidden mb-6">
@@ -54,8 +43,8 @@ export function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight"
               >
-                <span className="text-[#0D0D0D]">Protegem e </span>
-                <span className="text-[#C0111F]">Impressionam</span>
+                <span className="text-[#0D0D0D]">em </span>
+                <span className="text-[#C0111F]">Evidência</span>
               </motion.h1>
             </div>
 
@@ -66,6 +55,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg md:text-xl text-[#606060] max-w-xl mb-10 leading-relaxed"
             >
+              <span className="font-semibold text-[#0D0D0D]">Seu produto como proteção total.</span>{" "}
               Soluções em embalagens personalizadas de papel cartão e micro ondulado.
               Mais de 40 anos de excelência, tecnologia de ponta e qualidade certificada ISO 9001, FSC e FAMA.
             </motion.p>

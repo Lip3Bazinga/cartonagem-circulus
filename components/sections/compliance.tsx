@@ -16,6 +16,8 @@ import {
   Leaf,
   Scale,
   Heart,
+  Paperclip,
+  X,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -66,16 +68,20 @@ export function ComplianceSection() {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    category: "",
+    subject: "",
     description: "",
   })
+  const [wantsResume, setWantsResume] = useState(false)
+  const [resumeFile, setResumeFile] = useState<File | null>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setFormState("submitting")
     setTimeout(() => {
       setFormState("success")
-      setForm({ name: "", email: "", category: "", description: "" })
+      setForm({ name: "", email: "", subject: "", description: "" })
+      setWantsResume(false)
+      setResumeFile(null)
     }, 1800)
   }
 
@@ -176,7 +182,7 @@ export function ComplianceSection() {
             </div>
           </motion.div>
 
-          {/* RIGHT — Canal de Denúncias */}
+          {/* RIGHT — Canal de Comunicação */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -188,7 +194,7 @@ export function ComplianceSection() {
               <div className="w-10 h-10 rounded-lg bg-[#0D0D0D] flex items-center justify-center flex-shrink-0">
                 <MessageSquareWarning className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#0D0D0D]">Canal de Denúncias</h3>
+              <h3 className="text-xl font-bold text-[#0D0D0D]">Canal de Comunicação</h3>
             </div>
 
             {/* Privacy badge */}
@@ -211,7 +217,7 @@ export function ComplianceSection() {
                     <Eye className="w-4 h-4 text-[#606060]" />
                   )}
                   <span className="text-sm font-medium text-[#0D0D0D]">
-                    {isAnonymous ? "Denúncia Anônima" : "Identificar-me"}
+                    {isAnonymous ? "Enviar Anonimamente" : "Identificar-me"}
                   </span>
                 </div>
                 <button
@@ -240,7 +246,7 @@ export function ComplianceSection() {
                     <div className="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center">
                       <CheckCircle className="w-7 h-7 text-green-600" />
                     </div>
-                    <h4 className="text-lg font-bold text-[#0D0D0D]">Relato Recebido</h4>
+                    <h4 className="text-lg font-bold text-[#0D0D0D]">Mensagem Recebida</h4>
                     <p className="text-sm text-[#606060] leading-relaxed max-w-xs">
                       Sua mensagem foi registrada com segurança. A equipe responsável tratará o caso com total sigilo.
                     </p>
@@ -248,7 +254,7 @@ export function ComplianceSection() {
                       onClick={() => setFormState("idle")}
                       className="text-sm text-[#C0111F] font-medium hover:underline mt-2"
                     >
-                      Enviar outro relato
+                      Enviar outra mensagem
                     </button>
                   </motion.div>
                 ) : (
@@ -299,39 +305,88 @@ export function ComplianceSection() {
 
                     <div>
                       <label className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
-                        Categoria
+                        Assunto
                       </label>
-                      <select
+                      <input
+                        type="text"
                         required
-                        value={form.category}
-                        onChange={(e) => setForm({ ...form, category: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-lg border border-[#E5E5E5] text-sm text-[#0D0D0D] focus:outline-none focus:border-[#C0111F] transition-colors bg-white appearance-none"
-                      >
-                        <option value="">Selecione a categoria</option>
-                        <option>Assédio Moral ou Sexual</option>
-                        <option>Discriminação</option>
-                        <option>Fraude ou Corrupção</option>
-                        <option>Irregularidades Financeiras</option>
-                        <option>Violação de Normas de Segurança</option>
-                        <option>Dano ao Meio Ambiente</option>
-                        <option>Descumprimento do Código de Ética</option>
-                        <option>Trabalho Infantil ou Forçado</option>
-                        <option>Outros</option>
-                      </select>
+                        value={form.subject}
+                        onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                        placeholder="Conte em poucas palavras o motivo do contato"
+                        className="w-full px-4 py-2.5 rounded-lg border border-[#E5E5E5] text-sm text-[#0D0D0D] placeholder:text-[#BDBDBD] focus:outline-none focus:border-[#C0111F] transition-colors"
+                      />
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
-                        Descrição do Relato
+                        Sua Mensagem
                       </label>
                       <textarea
                         required
                         rows={5}
                         value={form.description}
                         onChange={(e) => setForm({ ...form, description: e.target.value })}
-                        placeholder="Descreva a situação com o máximo de detalhes possível. Não é necessário se identificar."
+                        placeholder="Descreva sua mensagem, sugestão ou relato com o máximo de detalhes possível. Não é necessário se identificar."
                         className="w-full px-4 py-2.5 rounded-lg border border-[#E5E5E5] text-sm text-[#0D0D0D] placeholder:text-[#BDBDBD] focus:outline-none focus:border-[#C0111F] transition-colors resize-none"
                       />
+                    </div>
+
+                    {/* Resume / file attachment option */}
+                    <div>
+                      <label className="flex items-center gap-2 cursor-pointer select-none">
+                        <input
+                          type="checkbox"
+                          checked={wantsResume}
+                          onChange={(e) => {
+                            setWantsResume(e.target.checked)
+                            if (!e.target.checked) setResumeFile(null)
+                          }}
+                          className="w-4 h-4 rounded border-[#E5E5E5] text-[#C0111F] focus:ring-[#C0111F]"
+                        />
+                        <span className="text-sm text-[#0D0D0D]">Quero anexar um currículo</span>
+                      </label>
+
+                      <AnimatePresence>
+                        {wantsResume && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="mt-3">
+                              {resumeFile ? (
+                                <div className="flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border border-[#E5E5E5] bg-[#F5F5F5] text-sm text-[#0D0D0D]">
+                                  <span className="flex items-center gap-2 truncate">
+                                    <Paperclip className="w-4 h-4 text-[#C0111F] flex-shrink-0" />
+                                    <span className="truncate">{resumeFile.name}</span>
+                                  </span>
+                                  <button
+                                    type="button"
+                                    onClick={() => setResumeFile(null)}
+                                    aria-label="Remover arquivo"
+                                    className="text-[#909090] hover:text-[#C0111F] flex-shrink-0"
+                                  >
+                                    <X className="w-4 h-4" />
+                                  </button>
+                                </div>
+                              ) : (
+                                <label className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg border border-dashed border-[#E5E5E5] text-sm text-[#606060] hover:border-[#C0111F] hover:text-[#C0111F] transition-colors cursor-pointer">
+                                  <Paperclip className="w-4 h-4" />
+                                  Selecionar arquivo (PDF ou Word)
+                                  <input
+                                    type="file"
+                                    accept=".pdf,.doc,.docx"
+                                    className="hidden"
+                                    onChange={(e) => setResumeFile(e.target.files?.[0] ?? null)}
+                                  />
+                                </label>
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
 
                     <Button
@@ -351,7 +406,7 @@ export function ComplianceSection() {
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          Enviar Relato com Segurança
+                          Enviar com Segurança
                         </>
                       )}
                     </Button>

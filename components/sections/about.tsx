@@ -2,16 +2,8 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { Target, Eye, Heart, ShieldCheck, Users, Lightbulb, Leaf } from "lucide-react"
 import Image from "next/image"
-
-const stats = [
-  { value: 1986, suffix: "", label: "Desde", isYear: true },
-  { value: 9000, suffix: "+", label: "m² de Área", prefix: "" },
-  { value: 12, suffix: "+", label: "Segmentos Atendidos" },
-  { value: 40, suffix: "+", label: "Anos de Mercado" },
-]
 
 const valores = [
   { icon: ShieldCheck, label: "Honestidade e transparência nos negócios" },
@@ -68,11 +60,6 @@ export function AboutSection() {
               {/* Overlay accent */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
-            {/* Floating badge */}
-            <div className="absolute -bottom-6 -right-6 bg-[#C0111F] text-white px-6 py-4 rounded-xl shadow-lg hidden md:block">
-              <span className="text-3xl font-bold">40+</span>
-              <span className="block text-sm">Anos de História</span>
-            </div>
           </motion.div>
 
           {/* Right Column - Text */}
@@ -93,32 +80,6 @@ export function AboutSection() {
             <p className="text-[#606060] text-base leading-relaxed mb-8">
               Seja em papel cartão ou micro-ondulado, somos o parceiro estratégico para o seu negócio unindo qualidade, agilidade na entrega e sustentabilidade. Inove na forma de apresentar seus produtos. Conheça nossas soluções.
             </p>
-
-            {/* Stats inline */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="text-center p-4 bg-[#F5F5F5] rounded-xl"
-                >
-                  {stat.isYear ? (
-                    <span className="text-2xl md:text-3xl font-bold text-[#C0111F]">{stat.value}</span>
-                  ) : (
-                    <AnimatedCounter
-                      end={stat.value}
-                      suffix={stat.suffix}
-                      className="text-2xl md:text-3xl font-bold text-[#C0111F]"
-                    />
-                  )}
-                  <p className="text-[#606060] text-xs md:text-sm mt-1">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         </div>
 

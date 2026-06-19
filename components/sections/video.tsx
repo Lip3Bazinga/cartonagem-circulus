@@ -17,14 +17,14 @@ export function VideoSection() {
       <section
         ref={sectionRef}
         id="video"
-        className="relative py-16 md:py-24 bg-[#0D0D0D] overflow-hidden"
+        className="relative py-16 md:py-24 bg-[#F5F5F5] overflow-hidden"
       >
         {/* Subtle grid pattern */}
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage:
-              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+              "linear-gradient(#0D0D0D 1px, transparent 1px), linear-gradient(90deg, #0D0D0D 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -46,7 +46,7 @@ export function VideoSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D0D0D] mb-4 tracking-tight"
             >
               Conheça A Cartonagem Circulu&apos;s
             </motion.h2>
@@ -55,7 +55,7 @@ export function VideoSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[#A0A0A0] mb-10 max-w-xl mx-auto"
+              className="text-[#606060] mb-10 max-w-xl mx-auto"
             >
               Mais de 40 anos transformando papel em valor. Conheça nossa estrutura, tecnologia e equipe.
             </motion.p>
