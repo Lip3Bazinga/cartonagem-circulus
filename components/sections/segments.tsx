@@ -39,6 +39,7 @@ export function SegmentsSection() {
   return (
     <section
       ref={sectionRef}
+      id="produtos"
       className="relative py-24 md:py-32 bg-white"
     >
       <div className="container mx-auto px-6">
@@ -53,7 +54,7 @@ export function SegmentsSection() {
             Mercados
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight">
-            Segmentos Atendidos
+            Segmentos atendidos
           </h2>
         </motion.div>
 
