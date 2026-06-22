@@ -14,7 +14,7 @@ const teamHighlights = [
   {
     icon: Award,
     value: "40+",
-    label: "Anos de Experiência",
+    label: "Anos de experiência",
     description: "Expertise consolidada no mercado",
   },
   {
@@ -53,7 +53,7 @@ export function TeamSection() {
             Nossos Colaboradores
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight mb-6">
-            Nosso Time
+            Nosso time
           </h2>
           <p className="text-[#606060] text-lg leading-relaxed max-w-3xl mx-auto">
             O sucesso da Cartonagem Circulu&apos;s é construído por uma equipe de profissionais altamente qualificados e comprometidos com a excelência em cada etapa do processo produtivo.

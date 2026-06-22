@@ -51,7 +51,7 @@ export function Footer() {
 
           {/* Column 2 - Quick Links */}
           <div>
-            <h4 className="text-[#0D0D0D] font-semibold mb-6">Links Rápidos</h4>
+            <h4 className="text-[#0D0D0D] font-semibold mb-6">Links rápidos</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>

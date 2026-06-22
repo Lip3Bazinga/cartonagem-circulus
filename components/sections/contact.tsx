@@ -57,7 +57,7 @@ export function ContactSection() {
             Entre em Contato
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight mb-6">
-            Vamos Criar Algo Juntos?
+            Vamos criar algo juntos?
           </h2>
           <p className="text-[#606060] text-lg max-w-2xl mx-auto">
             Entre em contato e receba um orçamento personalizado para o seu projeto de embalagem.
@@ -116,7 +116,7 @@ export function ContactSection() {
                     <button
                       type="button"
                       onClick={() => setDropdownOpen((o) => !o)}
-                      className={`w-full h-10 rounded-md bg-white border px-3 flex items-center justify-between text-sm transition-colors ${
+                      className={`w-full h-10 rounded-md bg-white border px-3 flex items-center justify-between text-sm transition-colors cursor-pointer ${
                         dropdownOpen ? "border-[#C0111F]" : "border-[#E5E5E5] hover:border-[#C0111F]/50"
                       } ${selectedSegment ? "text-[#0D0D0D]" : "text-[#909090]"}`}
                     >
@@ -147,7 +147,7 @@ export function ContactSection() {
                                   setSelectedSegment(segment)
                                   setDropdownOpen(false)
                                 }}
-                                className={`w-full flex items-center justify-between px-4 py-2 text-sm text-left transition-colors hover:bg-[#FDF0F1] ${
+                                className={`w-full flex items-center justify-between px-4 py-2 text-sm text-left transition-colors cursor-pointer hover:bg-[#FDF0F1] ${
                                   selectedSegment === segment
                                     ? "text-[#C0111F] font-semibold"
                                     : "text-[#0D0D0D]"

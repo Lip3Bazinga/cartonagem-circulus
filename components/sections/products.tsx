@@ -182,7 +182,7 @@ export function ProductsSection() {
             Nossos Produtos
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight mb-4">
-            Conheça Nossos Produtos
+            Conheça nossos produtos
           </h2>
           <p className="text-[#606060] text-lg max-w-2xl mx-auto">
             Selecione um segmento para conhecer materiais, formatos, acabamentos e prazos.
@@ -201,7 +201,7 @@ export function ProductsSection() {
               <button
                 key={p.title}
                 onClick={() => setActive(i)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-left whitespace-nowrap lg:whitespace-normal transition-all duration-200 flex-shrink-0 lg:flex-shrink w-full ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-left whitespace-nowrap lg:whitespace-normal transition-all duration-200 flex-shrink-0 lg:flex-shrink w-full cursor-pointer ${
                   i === active
                     ? "bg-[#C0111F] text-white shadow-md"
                     : "bg-[#F5F5F5] text-[#0D0D0D] hover:bg-[#F0F0F0]"
@@ -275,7 +275,7 @@ export function ProductsSection() {
                 <div className="bg-white rounded-xl p-4 flex items-start gap-3 shadow-sm">
                   <Clock className="w-5 h-5 text-[#C0111F] mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-[#0D0D0D] mb-1">Prazo Médio</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-[#0D0D0D] mb-1">Prazo médio</p>
                     <p className="text-sm text-[#606060]">{product.delivery}</p>
                   </div>
                 </div>
@@ -294,7 +294,7 @@ export function ProductsSection() {
                   href="#contato"
                   className="flex-1 bg-[#C0111F] hover:bg-[#a00e1a] text-white text-center font-semibold py-3 px-6 rounded-xl transition-colors duration-200"
                 >
-                  Solicitar Orçamento
+                  Solicitar orçamento
                 </a>
                 <a
                   href="#contato"

@@ -80,7 +80,7 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-[#E5E5E5] flex items-center justify-center hover:bg-[#F5F5F5] transition-colors"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white shadow-md border border-[#E5E5E5] flex items-center justify-center hover:bg-[#F5F5F5] transition-colors cursor-pointer"
               aria-label="Fechar"
             >
               <X className="w-5 h-5 text-[#0D0D0D]" />
@@ -102,14 +102,14 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                     <>
                       <button
                         onClick={handlePrev}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-[#E5E5E5] flex items-center justify-center hover:bg-[#F5F5F5] transition-colors"
+                        className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-[#E5E5E5] flex items-center justify-center hover:bg-[#F5F5F5] transition-colors cursor-pointer"
                         aria-label="Imagem anterior"
                       >
                         <ChevronLeft className="w-5 h-5 text-[#0D0D0D]" />
                       </button>
                       <button
                         onClick={handleNext}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-[#E5E5E5] flex items-center justify-center hover:bg-[#F5F5F5] transition-colors"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-[#E5E5E5] flex items-center justify-center hover:bg-[#F5F5F5] transition-colors cursor-pointer"
                         aria-label="Próxima imagem"
                       >
                         <ChevronRight className="w-5 h-5 text-[#0D0D0D]" />
@@ -125,7 +125,7 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                        className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all cursor-pointer ${
                           index === currentImageIndex
                             ? "border-[#C0111F] shadow-md"
                             : "border-transparent opacity-60 hover:opacity-100"
@@ -157,7 +157,7 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
                   className="w-full bg-[#C0111F] hover:bg-[#a00e1a] text-white py-6 rounded-lg font-semibold text-lg transition-all duration-300"
                 >
                   <a href="#contato" onClick={onClose}>
-                    Solicitar Orçamento
+                    Solicitar orçamento
                   </a>
                 </Button>
               </div>

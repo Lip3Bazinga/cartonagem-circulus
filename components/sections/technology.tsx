@@ -148,7 +148,7 @@ export function TechnologySection() {
                 Infraestrutura
               </span>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mt-1 drop-shadow-md">
-                Nossa Tecnologia
+                Nossa tecnologia
               </h2>
             </div>
           </motion.div>
@@ -157,14 +157,14 @@ export function TechnologySection() {
           <button
             onClick={prev}
             aria-label="Imagem anterior"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center hover:bg-black/60 transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center hover:bg-black/60 transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5 text-white" />
           </button>
           <button
             onClick={next}
             aria-label="Próxima imagem"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center hover:bg-black/60 transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/40 border border-white/20 flex items-center justify-center hover:bg-black/60 transition-colors cursor-pointer"
           >
             <ChevronRight className="w-5 h-5 text-white" />
           </button>
@@ -208,7 +208,7 @@ export function TechnologySection() {
                 key={i}
                 onClick={() => setCurrent(i)}
                 aria-label={`Ir para slide ${i + 1}`}
-                className={`rounded-full transition-all duration-300 ${
+                className={`rounded-full transition-all duration-300 cursor-pointer ${
                   i === current
                     ? "w-6 h-2 bg-[#C0111F]"
                     : "w-2 h-2 bg-[#D5D5D5] hover:bg-[#C0111F]/50"

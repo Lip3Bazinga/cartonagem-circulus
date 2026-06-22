@@ -7,7 +7,7 @@ const certifications = [
   {
     logo: "/images/certs/iso9001.jpg",
     title: "ISO 9001",
-    subtitle: "Sistema de Gestão da Qualidade",
+    subtitle: "Sistema de gestão da qualidade",
     description:
       "Certificação internacional que atesta nosso compromisso com a qualidade em todos os processos produtivos, garantindo consistência e excelência em cada embalagem produzida.",
   },
@@ -49,7 +49,7 @@ export function CertificationsSection() {
             Certificações
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight">
-            Qualidade Certificada
+            Qualidade certificada
           </h2>
         </motion.div>
 

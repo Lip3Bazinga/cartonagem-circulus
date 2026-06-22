@@ -48,7 +48,7 @@ export function VideoSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D0D0D] mb-4 tracking-tight"
             >
-              Conheça A Cartonagem Circulu&apos;s
+              Conheça a Cartonagem Circulu&apos;s
             </motion.h2>
 
             <motion.p
@@ -115,7 +115,7 @@ export function VideoSection() {
             />
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer"
               aria-label="Fechar vídeo"
             >
               <X className="w-5 h-5 text-white" />

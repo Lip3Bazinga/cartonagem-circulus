@@ -81,14 +81,14 @@ export function Navigation() {
               asChild
               className="bg-[#C0111F] hover:bg-[#a00e1a] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300"
             >
-              <a href="#contato">Solicitar Orçamento</a>
+              <a href="#contato">Solicitar orçamento</a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-[#0D0D0D] p-2"
+            className="lg:hidden text-[#0D0D0D] p-2 cursor-pointer"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -140,7 +140,7 @@ export function Navigation() {
                   className="bg-[#C0111F] hover:bg-[#a00e1a] text-white px-8 py-3 rounded-lg font-medium text-lg mt-4"
                 >
                   <a href="#contato" onClick={() => setIsMobileMenuOpen(false)}>
-                    Solicitar Orçamento
+                    Solicitar orçamento
                   </a>
                 </Button>
               </motion.div>

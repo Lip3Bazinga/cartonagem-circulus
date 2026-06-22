@@ -101,7 +101,7 @@ export function ComplianceSection() {
             Governança Corporativa
           </span>
           <h2 className="text-4xl font-bold text-[#0D0D0D] text-balance">
-            Compliance & Políticas
+            Compliance & políticas
           </h2>
           <p className="text-[#606060] mt-4 max-w-2xl mx-auto leading-relaxed">
             Transparência, ética e responsabilidade são pilares da Cartonagem Circulu&apos;s.
@@ -139,7 +139,7 @@ export function ComplianceSection() {
                   >
                     <button
                       onClick={() => setOpenPolicy(isOpen ? null : index)}
-                      className="w-full flex items-center justify-between p-5 text-left hover:bg-[#FDF0F1] transition-colors duration-200 group"
+                      className="w-full flex items-center justify-between p-5 text-left hover:bg-[#FDF0F1] transition-colors duration-200 group cursor-pointer"
                     >
                       <div className="flex items-center gap-4">
                         <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isOpen ? "bg-[#C0111F]" : "bg-[#F5F5F5] group-hover:bg-[#C0111F]/10"}`}>
@@ -201,7 +201,7 @@ export function ComplianceSection() {
             <div className="flex items-center gap-2 bg-white border border-[#E5E5E5] rounded-xl px-4 py-3 mb-6 shadow-sm">
               <Lock className="w-4 h-4 text-[#C0111F] flex-shrink-0" />
               <p className="text-xs text-[#606060]">
-                <span className="font-semibold text-[#0D0D0D]">Canal Seguro e Confidencial.</span>{" "}
+                <span className="font-semibold text-[#0D0D0D]">Canal seguro e confidencial.</span>{" "}
                 Sua identidade é protegida. Relatos são tratados com total sigilo.
               </p>
             </div>
@@ -217,13 +217,13 @@ export function ComplianceSection() {
                     <Eye className="w-4 h-4 text-[#606060]" />
                   )}
                   <span className="text-sm font-medium text-[#0D0D0D]">
-                    {isAnonymous ? "Enviar Anonimamente" : "Identificar-me"}
+                    {isAnonymous ? "Enviar anonimamente" : "Identificar-me"}
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => setIsAnonymous(!isAnonymous)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 focus:outline-none ${isAnonymous ? "bg-[#0D0D0D]" : "bg-[#C0111F]"}`}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300 cursor-pointer focus:outline-none ${isAnonymous ? "bg-[#0D0D0D]" : "bg-[#C0111F]"}`}
                   aria-label="Alternar anonimato"
                 >
                   <motion.span
@@ -246,13 +246,13 @@ export function ComplianceSection() {
                     <div className="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center">
                       <CheckCircle className="w-7 h-7 text-green-600" />
                     </div>
-                    <h4 className="text-lg font-bold text-[#0D0D0D]">Mensagem Recebida</h4>
+                    <h4 className="text-lg font-bold text-[#0D0D0D]">Mensagem recebida</h4>
                     <p className="text-sm text-[#606060] leading-relaxed max-w-xs">
                       Sua mensagem foi registrada com segurança. A equipe responsável tratará o caso com total sigilo.
                     </p>
                     <button
                       onClick={() => setFormState("idle")}
-                      className="text-sm text-[#C0111F] font-medium hover:underline mt-2"
+                      className="text-sm text-[#C0111F] font-medium hover:underline mt-2 cursor-pointer"
                     >
                       Enviar outra mensagem
                     </button>
@@ -319,7 +319,7 @@ export function ComplianceSection() {
 
                     <div>
                       <label className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
-                        Sua Mensagem
+                        Sua mensagem
                       </label>
                       <textarea
                         required
@@ -366,7 +366,7 @@ export function ComplianceSection() {
                                     type="button"
                                     onClick={() => setResumeFile(null)}
                                     aria-label="Remover arquivo"
-                                    className="text-[#909090] hover:text-[#C0111F] flex-shrink-0"
+                                    className="text-[#909090] hover:text-[#C0111F] flex-shrink-0 cursor-pointer"
                                   >
                                     <X className="w-4 h-4" />
                                   </button>
@@ -406,7 +406,7 @@ export function ComplianceSection() {
                       ) : (
                         <>
                           <Send className="w-4 h-4" />
-                          Enviar com Segurança
+                          Enviar com segurança
                         </>
                       )}
                     </Button>

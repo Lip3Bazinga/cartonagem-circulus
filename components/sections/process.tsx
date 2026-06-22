@@ -7,27 +7,27 @@ import { Palette, Printer, Scissors, Package, Truck } from "lucide-react"
 const steps = [
   {
     icon: Palette,
-    title: "Criação e Arte",
+    title: "Criação e arte",
     description: "Desenvolvimento do layout e estrutura da embalagem com nossa equipe de design",
   },
   {
     icon: Printer,
-    title: "Impressão de Alta Precisão",
+    title: "Impressão de alta precisão",
     description: "Impressoras Roland e KBA Rapida com qualidade gráfica superior e gerenciamento de cores GMG",
   },
   {
     icon: Scissors,
-    title: "Corte e Vinco",
+    title: "Corte e vinco",
     description: "Equipamentos BOBST Commercial de última geração para cortes precisos",
   },
   {
     icon: Package,
-    title: "Montagem e Acabamento",
+    title: "Montagem e acabamento",
     description: "Coladeira Bobst Expert, laminação e acabamentos sofisticados",
   },
   {
     icon: Truck,
-    title: "Entrega Rápida",
+    title: "Entrega rápida",
     description: "Logística eficiente para entrega em todo o Brasil com agilidade e pontualidade",
   },
 ]

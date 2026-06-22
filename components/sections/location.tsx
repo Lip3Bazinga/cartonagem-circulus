@@ -116,7 +116,7 @@ export function LocationSection() {
             className="bg-[#C0111F] rounded-xl p-6 flex items-center justify-center gap-3 text-white font-semibold hover:bg-[#A00F1A] transition-colors duration-300 shadow-sm hover:shadow-md"
           >
             <Navigation className="w-6 h-6" />
-            <span>Como Chegar</span>
+            <span>Como chegar</span>
           </a>
         </motion.div>
       </div>

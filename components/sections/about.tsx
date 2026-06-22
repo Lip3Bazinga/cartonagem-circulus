@@ -35,8 +35,8 @@ export function AboutSection() {
             Nossa História
           </span>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D0D0D] tracking-tight leading-tight">
-            Mais De 40 Anos<br />
-            <span className="text-[#C0111F]">Produzindo Excelência</span>
+            Mais de 40 anos<br />
+            <span className="text-[#C0111F]">produzindo excelência</span>
           </h2>
         </motion.div>
 

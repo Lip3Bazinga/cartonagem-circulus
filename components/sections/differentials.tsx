@@ -7,22 +7,22 @@ import { Cpu, Leaf, Layers, HeartHandshake } from "lucide-react"
 const differentials = [
   {
     icon: Cpu,
-    title: "Tecnologia de Ponta",
+    title: "Tecnologia de ponta",
     description: "Impressoras Roland 800, KBA Rapida, coladeiras BOBST Expert e sistema de gerenciamento de cores GMG para resultados gráficos premium.",
   },
   {
     icon: Leaf,
-    title: "Sustentabilidade Certificada",
+    title: "Sustentabilidade certificada",
     description: "Materiais sustentáveis com certificação FSC®, comprometidos com a preservação ambiental e o uso responsável de recursos florestais.",
   },
   {
     icon: Layers,
-    title: "Variedade de Soluções",
+    title: "Variedade de soluções",
     description: "10 segmentos atendidos, do alimentício ao automotivo, com embalagens em papel cartão, micro ondulado e papelão com acabamentos diversificados.",
   },
   {
     icon: HeartHandshake,
-    title: "Atendimento Personalizado",
+    title: "Atendimento personalizado",
     description: "Cada projeto é único. Do briefing ao produto final, nossa equipe cuida de cada detalhe para garantir que sua embalagem reflita a identidade da sua marca.",
   },
 ]
@@ -49,7 +49,7 @@ export function DifferentialsSection() {
             Por que nos escolher
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0D0D0D] tracking-tight">
-            Por Que Escolher A Circulu&apos;s?
+            Por que escolher a Circulu&apos;s?
           </h2>
         </motion.div>
 

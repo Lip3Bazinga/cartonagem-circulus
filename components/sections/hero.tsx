@@ -33,7 +33,7 @@ export function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
               >
-                Sua Marca
+                Sua marca
               </motion.h1>
             </div>
             <div className="overflow-hidden mb-6">
@@ -73,7 +73,7 @@ export function HeroSection() {
                 className="bg-[#C0111F] hover:bg-[#a00e1a] text-white px-8 py-6 rounded-lg font-semibold text-lg transition-all duration-300 group"
               >
                 <a href="#contato" className="flex items-center gap-2">
-                  Solicitar Orçamento
+                  Solicitar orçamento
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
@@ -144,19 +144,19 @@ export function HeroSection() {
               <div className="flex items-center justify-center md:justify-start gap-4">
                 <div>
                   <AnimatedCounter end={40} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
-                  <p className="text-sm text-[#606060]">Anos de Mercado</p>
+                  <p className="text-sm text-[#606060]">Anos de mercado</p>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
                 <div>
                   <AnimatedCounter end={9000} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
-                  <p className="text-sm text-[#606060]">m² de Área</p>
+                  <p className="text-sm text-[#606060]">m² de área</p>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
                 <div>
                   <AnimatedCounter end={10} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
-                  <p className="text-sm text-[#606060]">Segmentos Atendidos</p>
+                  <p className="text-sm text-[#606060]">Segmentos atendidos</p>
                 </div>
               </div>
               <div className="flex items-center justify-center md:justify-end gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
