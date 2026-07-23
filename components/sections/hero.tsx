@@ -70,7 +70,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#C0111F] hover:bg-[#a00e1a] text-white px-8 py-6 rounded-lg font-semibold text-lg transition-all duration-300 group"
+                className="bg-[#D2D3D5] hover:bg-[#BFC1C4] text-[#0D0D0D] px-8 py-6 rounded-lg font-semibold text-lg transition-all duration-300 group"
               >
                 <a href="#contato" className="flex items-center gap-2">
                   Solicitar orçamento

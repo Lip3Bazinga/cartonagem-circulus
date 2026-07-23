@@ -17,7 +17,7 @@ export function VideoSection() {
       <section
         ref={sectionRef}
         id="video"
-        className="relative py-16 md:py-24 bg-[#F5F5F5] overflow-hidden"
+        className="relative py-16 md:py-24 bg-[#E0E0E0] overflow-hidden"
       >
         {/* Subtle grid pattern */}
         <div

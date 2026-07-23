@@ -154,7 +154,7 @@ export function ProductModal({ product, isOpen, onClose }: ProductModalProps) {
 
                 <Button
                   asChild
-                  className="w-full bg-[#C0111F] hover:bg-[#a00e1a] text-white py-6 rounded-lg font-semibold text-lg transition-all duration-300"
+                  className="w-full bg-[#D2D3D5] hover:bg-[#BFC1C4] text-[#0D0D0D] py-6 rounded-lg font-semibold text-lg transition-all duration-300"
                 >
                   <a href="#contato" onClick={onClose}>
                     Solicitar orçamento

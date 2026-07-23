@@ -95,7 +95,7 @@ export function TechnologySection() {
     <section
       ref={sectionRef}
       id="tecnologia"
-      className="relative w-full py-12 bg-[#F5F5F5] flex flex-col items-center overflow-hidden"
+      className="relative w-full py-12 bg-[#E0E0E0] flex flex-col items-center overflow-hidden"
     >
       {/* Diagonal lines */}
       <div
@@ -104,6 +104,26 @@ export function TechnologySection() {
           backgroundImage: "repeating-linear-gradient(135deg, #0D0D0D 0px, #0D0D0D 1px, transparent 1px, transparent 40px)",
         }}
       />
+
+      {/* Section heading — title + subtitle, matching other sections */}
+      <div className="relative z-10 text-center mb-10 px-6">
+        <motion.span
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-[#C0111F] text-sm font-semibold tracking-widest uppercase mb-4 block"
+        >
+          Infraestrutura
+        </motion.span>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0D0D0D] tracking-tight"
+        >
+          Nossa tecnologia
+        </motion.h2>
+      </div>
 
       {/* Slider + caption — 85% width, centered */}
       <div className="relative z-10 w-[85%]">
@@ -135,23 +155,6 @@ export function TechnologySection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" />
             </div>
           ))}
-
-          {/* Section label — top center */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="absolute top-8 left-1/2 -translate-x-1/2 text-center z-10 whitespace-nowrap"
-          >
-            <div className="backdrop-blur-md bg-black/40 border border-white/20 rounded-2xl px-8 py-4 shadow-lg">
-              <span className="text-white/70 text-xs font-semibold tracking-widest uppercase">
-                Infraestrutura
-              </span>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight mt-1 drop-shadow-md">
-                Nossa tecnologia
-              </h2>
-            </div>
-          </motion.div>
 
           {/* Prev / Next arrows */}
           <button

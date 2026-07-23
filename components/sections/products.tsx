@@ -292,7 +292,7 @@ export function ProductsSection() {
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <a
                   href="#contato"
-                  className="flex-1 bg-[#C0111F] hover:bg-[#a00e1a] text-white text-center font-semibold py-3 px-6 rounded-xl transition-colors duration-200"
+                  className="flex-1 bg-[#D2D3D5] hover:bg-[#BFC1C4] text-[#0D0D0D] text-center font-semibold py-3 px-6 rounded-xl transition-colors duration-200"
                 >
                   Solicitar orçamento
                 </a>
