@@ -11,21 +11,32 @@ import { ComplianceSection } from "@/components/sections/compliance"
 import { LocationSection } from "@/components/sections/location"
 import { ContactSection } from "@/components/sections/contact"
 import { Footer } from "@/components/footer"
+import { SectionDivider } from "@/components/ui/section-divider"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Navigation />
       <HeroSection />
+      <SectionDivider />
       <VideoSection />
+      <SectionDivider />
       <AboutSection />
+      <SectionDivider />
       <TechnologySection />
+      <SectionDivider />
       <CertificationsSection />
+      <SectionDivider />
       <DifferentialsSection />
+      <SectionDivider />
       <TeamSection />
+      <SectionDivider />
       <SegmentsSection />
+      <SectionDivider />
       <ComplianceSection />
+      <SectionDivider />
       <LocationSection />
+      <SectionDivider />
       <ContactSection />
       <Footer />
     </main>

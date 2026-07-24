@@ -102,7 +102,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-[#C0111F]/10 rounded-3xl transform rotate-3" />
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/hero-embalagens.jpg"
+                  src="/images/hero-banner-new.jpeg"
                   alt="Embalagens personalizadas Cartonagem Circulus"
                   fill
                   className="object-cover"
