@@ -5,8 +5,40 @@ import { ArrowRight, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 import Image from "next/image"
+import useEmblaCarousel from "embla-carousel-react"
+import Autoplay from "embla-carousel-autoplay"
+import { useCallback, useEffect, useState } from "react"
+
+// Assim que o cliente enviar as fotos dos equipamentos pelo Drive, basta
+// trocar os caminhos aqui — o slide já está funcional.
+const heroImages = [
+  "/images/hero-banner-new.jpeg",
+  "/images/Showroom.jpg",
+  "/images/producao.jpg",
+  "/images/Impressora offset 1.jpg",
+]
 
 export function HeroSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+  ])
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi?.scrollTo(index),
+    [emblaApi],
+  )
+
+  useEffect(() => {
+    if (!emblaApi) return
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap())
+    emblaApi.on("select", onSelect)
+    onSelect()
+    return () => {
+      emblaApi.off("select", onSelect)
+    }
+  }, [emblaApi])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F5F5]">
       {/* Subtle Background Pattern */}
@@ -31,9 +63,9 @@ export function HeroSection() {
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0D0D0D] leading-tight tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight"
               >
-                Sua marca
+                <span className="text-[#0D0D0D]">Embalagens que valorizam</span>
               </motion.h1>
             </div>
             <div className="overflow-hidden mb-6">
@@ -43,8 +75,8 @@ export function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight"
               >
-                <span className="text-[#0D0D0D]">em </span>
-                <span className="text-[#C0111F]">Evidência</span>
+                <span className="text-[#0D0D0D]">a sua </span>
+                <span className="text-[#C0111F]">marca</span>
               </motion.h1>
             </div>
 
@@ -55,8 +87,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg md:text-xl text-[#606060] max-w-xl mb-10 leading-relaxed"
             >
-              <span className="font-semibold text-[#0D0D0D]">Seu produto como proteção total.</span>{" "}
-              Soluções em embalagens personalizadas de papel cartão e micro ondulado.
+              Soluções em embalagens de papel cartão e micro ondulado personalizadas com impressão offset.
               Mais de 40 anos de excelência, tecnologia de ponta e qualidade certificada ISO 9001, FSC e FAMA.
             </motion.p>
 
@@ -101,14 +132,38 @@ export function HeroSection() {
             <div className="relative aspect-square max-w-lg mx-auto">
               <div className="absolute inset-0 bg-[#C0111F]/10 rounded-3xl transform rotate-3" />
               <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/hero-banner-new.jpeg"
-                  alt="Embalagens personalizadas Cartonagem Circulus"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+                <div className="h-full overflow-hidden" ref={emblaRef}>
+                  <div className="flex h-full">
+                    {heroImages.map((src, index) => (
+                      <div key={src} className="relative h-full min-w-0 shrink-0 grow-0 basis-full">
+                        <Image
+                          src={src}
+                          alt="Embalagens personalizadas Cartonagem Circulus"
+                          fill
+                          className="object-cover"
+                          priority={index === 0}
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Slide indicators */}
+                {heroImages.length > 1 && (
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {heroImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => scrollTo(index)}
+                        aria-label={`Ir para o slide ${index + 1}`}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          index === selectedIndex ? "w-6 bg-white" : "w-2 bg-white/50"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Floating cert badge */}

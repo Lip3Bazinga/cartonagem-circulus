@@ -18,7 +18,7 @@ const differentials = [
   {
     icon: Layers,
     title: "Variedade de soluções",
-    description: "10 segmentos atendidos, do alimentício ao automotivo, com embalagens em papel cartão, micro ondulado e papelão com acabamentos diversificados.",
+    description: "10 segmentos atendidos, do alimentício ao automotivo, com embalagens em papel cartão e micro ondulado com acabamentos diversificados.",
   },
   {
     icon: HeartHandshake,
