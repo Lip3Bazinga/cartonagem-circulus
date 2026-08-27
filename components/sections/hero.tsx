@@ -1,43 +1,42 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { AnimatedCounter } from "@/components/ui/animated-counter"
-import Image from "next/image"
-import useEmblaCarousel from "embla-carousel-react"
-import Autoplay from "embla-carousel-autoplay"
-import { useCallback, useEffect, useState } from "react"
+import { motion } from "framer-motion";
+import { ArrowRight, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
+import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useCallback, useEffect, useState } from "react";
 
 // Assim que o cliente enviar as fotos dos equipamentos pelo Drive, basta
 // trocar os caminhos aqui — o slide já está funcional.
 const heroImages = [
-  "/images/hero-banner-new.jpeg",
-  "/images/Showroom.jpg",
-  "/images/producao.jpg",
-  "/images/Impressora offset 1.jpg",
-]
+  "/images/hero-image-1.jpeg",
+  "/images/hero-image-2.jpeg",
+  "/images/hero-image-3.jpeg",
+];
 
 export function HeroSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 4000, stopOnInteraction: false }),
-  ])
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  ]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollTo = useCallback(
     (index: number) => emblaApi?.scrollTo(index),
     [emblaApi],
-  )
+  );
 
   useEffect(() => {
-    if (!emblaApi) return
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap())
-    emblaApi.on("select", onSelect)
-    onSelect()
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
     return () => {
-      emblaApi.off("select", onSelect)
-    }
-  }, [emblaApi])
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F5F5]">
@@ -46,7 +45,8 @@ export function HeroSection() {
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, #0D0D0D 1px, transparent 0)",
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, #0D0D0D 1px, transparent 0)",
             backgroundSize: "40px 40px",
           }}
         />
@@ -87,8 +87,10 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg md:text-xl text-[#606060] max-w-xl mb-10 leading-relaxed"
             >
-              Soluções em embalagens de papel cartão e micro ondulado personalizadas com impressão offset.
-              Mais de 40 anos de excelência, tecnologia de ponta e qualidade certificada ISO 9001, FSC e FAMA.
+              Soluções em embalagens de papel cartão e micro ondulado
+              personalizadas com impressão offset. Mais de 40 anos de
+              excelência, tecnologia de ponta e qualidade certificada ISO 9001,
+              FSC e FAMA.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -135,7 +137,10 @@ export function HeroSection() {
                 <div className="h-full overflow-hidden" ref={emblaRef}>
                   <div className="flex h-full">
                     {heroImages.map((src, index) => (
-                      <div key={src} className="relative h-full min-w-0 shrink-0 grow-0 basis-full">
+                      <div
+                        key={src}
+                        className="relative h-full min-w-0 shrink-0 grow-0 basis-full"
+                      >
                         <Image
                           src={src}
                           alt="Embalagens personalizadas Cartonagem Circulus"
@@ -158,7 +163,9 @@ export function HeroSection() {
                         onClick={() => scrollTo(index)}
                         aria-label={`Ir para o slide ${index + 1}`}
                         className={`h-2 rounded-full transition-all duration-300 ${
-                          index === selectedIndex ? "w-6 bg-white" : "w-2 bg-white/50"
+                          index === selectedIndex
+                            ? "w-6 bg-white"
+                            : "w-2 bg-white/50"
                         }`}
                       />
                     ))}
@@ -174,11 +181,17 @@ export function HeroSection() {
                 className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg border border-[#E5E5E5] px-4 py-3 flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-lg bg-[#C0111F] flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-xs font-bold leading-none text-center">ISO</span>
+                  <span className="text-white text-xs font-bold leading-none text-center">
+                    ISO
+                  </span>
                 </div>
                 <div>
-                  <p className="text-[#0D0D0D] font-semibold text-sm leading-tight">Certificado</p>
-                  <p className="text-[#606060] text-xs leading-tight">ISO 9001 + FSC + FAMA</p>
+                  <p className="text-[#0D0D0D] font-semibold text-sm leading-tight">
+                    Certificado
+                  </p>
+                  <p className="text-[#606060] text-xs leading-tight">
+                    ISO 9001 + FSC + FAMA
+                  </p>
                 </div>
               </motion.div>
             </div>
@@ -198,19 +211,31 @@ export function HeroSection() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="flex items-center justify-center md:justify-start gap-4">
                 <div>
-                  <AnimatedCounter end={40} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
+                  <AnimatedCounter
+                    end={40}
+                    suffix="+"
+                    className="text-3xl font-bold text-[#C0111F]"
+                  />
                   <p className="text-sm text-[#606060]">Anos de mercado</p>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
                 <div>
-                  <AnimatedCounter end={9000} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
+                  <AnimatedCounter
+                    end={9000}
+                    suffix="+"
+                    className="text-3xl font-bold text-[#C0111F]"
+                  />
                   <p className="text-sm text-[#606060]">m² de área</p>
                 </div>
               </div>
               <div className="flex items-center justify-center gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
                 <div>
-                  <AnimatedCounter end={10} suffix="+" className="text-3xl font-bold text-[#C0111F]" />
+                  <AnimatedCounter
+                    end={10}
+                    suffix="+"
+                    className="text-3xl font-bold text-[#C0111F]"
+                  />
                   <p className="text-sm text-[#606060]">Segmentos atendidos</p>
                 </div>
               </div>
@@ -225,5 +250,5 @@ export function HeroSection() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }
