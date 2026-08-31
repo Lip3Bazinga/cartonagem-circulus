@@ -61,7 +61,7 @@ export function DifferentialsSection() {
               initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
+              className="group min-w-0"
             >
               <div className="bg-white rounded-2xl p-8 h-full flex gap-6 border border-[#E5E5E5] shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
                 {/* Red accent line on hover */}
@@ -75,7 +75,7 @@ export function DifferentialsSection() {
                 </div>
 
                 {/* Content */}
-                <div>
+                <div className="min-w-0">
                   <h3 className="text-xl font-bold text-[#0D0D0D] mb-3 group-hover:text-[#C0111F] transition-colors duration-300">
                     {diff.title}
                   </h3>

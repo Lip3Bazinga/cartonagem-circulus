@@ -65,13 +65,13 @@ export function ContactSection() {
         </motion.div>
 
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto min-w-0">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-2"
+            className="lg:col-span-2 min-w-0"
           >
             <div className="bg-white rounded-2xl p-8 border border-[#E5E5E5] shadow-sm">
               <form className="space-y-6">
@@ -193,7 +193,7 @@ export function ContactSection() {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-6 min-w-0"
           >
             {/* WhatsApp */}
             <a

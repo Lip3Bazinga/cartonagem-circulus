@@ -39,7 +39,7 @@ export function HeroSection() {
   }, [emblaApi]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F5F5F5]">
+    <section className="relative lg:min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden bg-[#F5F5F5]">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div
@@ -53,7 +53,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-32 pb-48">
+      <div className="relative z-10 container mx-auto px-6 pt-48 pb-12 lg:pb-48">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}
           <div>
@@ -204,7 +204,7 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute bottom-0 left-0 right-0"
+        className="relative lg:absolute lg:bottom-0 left-0 right-0"
       >
         <div className="container mx-auto px-6 pb-8">
           <div className="bg-white rounded-2xl shadow-lg border border-[#E5E5E5] p-6 md:p-8">
