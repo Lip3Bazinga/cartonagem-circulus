@@ -56,7 +56,7 @@ export function HeroSection() {
       <div className="relative z-10 container mx-auto px-6 pt-48 pb-12 lg:pb-48">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}
-          <div>
+          <div className="text-center lg:text-left">
             {/* Headline */}
             <div className="overflow-hidden mb-4">
               <motion.h1
@@ -85,7 +85,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg md:text-xl text-[#606060] max-w-xl mb-10 leading-relaxed"
+              className="text-lg md:text-xl text-[#606060] max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
             >
               Soluções em embalagens de papel cartão e micro ondulado
               personalizadas com impressão offset. Mais de 40 anos de
@@ -98,7 +98,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4"
             >
               <Button
                 asChild
@@ -213,7 +213,7 @@ export function HeroSection() {
         <div className="container mx-auto px-6 pb-8">
           <div className="bg-white rounded-2xl shadow-lg border border-[#E5E5E5] p-6 md:p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-              <div className="flex items-center justify-center md:justify-start gap-4">
+              <div className="flex items-center justify-center lg:justify-start gap-4">
                 <div>
                   <AnimatedCounter
                     end={40}
@@ -243,7 +243,7 @@ export function HeroSection() {
                   <p className="text-sm text-[#606060]">Segmentos atendidos</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center md:justify-end gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
+              <div className="flex items-center justify-center lg:justify-end gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
                 <div>
                   <p className="text-3xl font-bold text-[#C0111F]">ISO</p>
                   <p className="text-sm text-[#606060]">9001 + FSC + FAMA</p>
