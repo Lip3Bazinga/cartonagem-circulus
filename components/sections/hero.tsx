@@ -172,29 +172,33 @@ export function HeroSection() {
                   </div>
                 )}
               </div>
-
-              {/* Floating cert badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-lg border border-[#E5E5E5] px-4 py-3 flex items-center gap-3"
-              >
-                <div className="w-10 h-10 rounded-lg bg-[#C0111F] flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-xs font-bold leading-none text-center">
-                    ISO
-                  </span>
-                </div>
-                <div>
-                  <p className="text-[#0D0D0D] font-semibold text-sm leading-tight">
-                    Certificado
-                  </p>
-                  <p className="text-[#606060] text-xs leading-tight">
-                    ISO 9001 + FSC + FAMA
-                  </p>
-                </div>
-              </motion.div>
             </div>
+
+            {/* Floating cert badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+              className="relative mt-4 max-w-lg mx-auto bg-white rounded-2xl shadow-lg border border-[#E5E5E5] px-4 py-3 flex items-center gap-3 w-fit"
+            >
+              <div className="w-10 h-10 rounded-lg bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden flex items-center justify-center flex-shrink-0">
+                <Image
+                  src="/images/certs/iso9001.jpg"
+                  alt="Selo de certificação ISO 9001"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <p className="text-[#0D0D0D] font-semibold text-sm leading-tight">
+                  Certificado
+                </p>
+                <p className="text-[#606060] text-xs leading-tight">
+                  ISO 9001 + FSC + FAMA
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
