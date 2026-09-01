@@ -131,9 +131,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative hidden lg:block"
           >
-            <div className="relative aspect-square max-w-lg mx-auto">
+            <div className="relative aspect-[4/3] max-w-lg mx-auto">
               <div className="absolute inset-0 bg-[#C0111F]/10 rounded-3xl transform rotate-3" />
-              <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                 <div className="h-full overflow-hidden" ref={emblaRef}>
                   <div className="flex h-full">
                     {heroImages.map((src, index) => (
