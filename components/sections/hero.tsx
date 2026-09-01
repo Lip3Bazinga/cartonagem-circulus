@@ -214,7 +214,7 @@ export function HeroSection() {
           <div className="bg-white rounded-2xl shadow-lg border border-[#E5E5E5] p-6 md:p-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="flex items-center justify-center lg:justify-start gap-4">
-                <div>
+                <div className="text-center lg:text-left">
                   <AnimatedCounter
                     end={40}
                     suffix="+"
@@ -224,7 +224,7 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="flex items-center justify-center gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
-                <div>
+                <div className="text-center lg:text-left">
                   <AnimatedCounter
                     end={9000}
                     suffix="+"
@@ -234,7 +234,7 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="flex items-center justify-center gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
-                <div>
+                <div className="text-center lg:text-left">
                   <AnimatedCounter
                     end={10}
                     suffix="+"
@@ -244,7 +244,7 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="flex items-center justify-center lg:justify-end gap-4 md:border-l md:border-[#E5E5E5] md:pl-8">
-                <div>
+                <div className="text-center lg:text-left">
                   <p className="text-3xl font-bold text-[#C0111F]">ISO</p>
                   <p className="text-sm text-[#606060]">9001 + FSC + FAMA</p>
                 </div>
