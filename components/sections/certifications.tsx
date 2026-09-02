@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const certifications = [
   {
@@ -14,7 +14,7 @@ const certifications = [
   {
     logo: "/images/certs/fsc.png",
     title: "FSC®",
-    subtitle: "Forest Stewardship Council",
+    subtitle: "Forest Stewardship Council®",
     description:
       "Certificação que garante que os materiais utilizados em nossas embalagens provêm de florestas manejadas de forma responsável, contribuindo para a preservação ambiental.",
   },
@@ -25,11 +25,11 @@ const certifications = [
     description:
       "Autorização oficial FAMA que nos permite produzir embalagens com personagens Disney, atestando nossa responsabilidade social, condições de trabalho e padrões de qualidade internacionais.",
   },
-]
+];
 
 export function CertificationsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
     <section
@@ -70,10 +70,9 @@ export function CertificationsSection() {
                 {/* Logo */}
                 <div className="flex items-center justify-center mb-6">
                   <div
-                    className={`rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden group-hover:border-[#C0111F]/30 transition-colors duration-300 flex items-center justify-center ${cert.title === "FSC®"
-                      ? "w-48 h-72"
-                      : "w-48 h-48"
-                      } ${cert.title === "FSC®" ? "p-2" : ""}`}
+                    className={`rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden group-hover:border-[#C0111F]/30 transition-colors duration-300 flex items-center justify-center ${
+                      cert.title === "FSC®" ? "w-48 h-72" : "w-48 h-48"
+                    } ${cert.title === "FSC®" ? "p-2" : ""}`}
                   >
                     <img
                       src={cert.logo}
@@ -105,5 +104,5 @@ export function CertificationsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
