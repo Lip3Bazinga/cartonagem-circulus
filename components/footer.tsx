@@ -28,7 +28,7 @@ export function Footer() {
           {/* Column 1 - Logo & Social */}
           <div>
             <a href="#" className="flex items-center gap-2 mb-6 group">
-              <Image src="/images/LOGO CIRCULUS COMPLETO.png" alt="Circulus Logo" width={130} height={100} className="w-[130px] h-auto object-contain" />
+              <Image src="/images/logo-circulus-completo.png" alt="Circulus Logo" width={130} height={100} className="w-[130px] h-auto object-contain" />
             </a>
             <p className="text-[#606060] text-sm leading-relaxed mb-6">
               Indústria de Embalagens Personalizadas desde 1986
@@ -92,13 +92,17 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-[#E5E5E5]">
         <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#909090]">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#6E6E6E]">
             <p>
               © 2025 Cartonagem Circulu&apos;s · Todos os direitos reservados
             </p>
-            <p>
-              Franca, São Paulo — Brasil
-            </p>
+            <div className="flex items-center gap-4">
+              <a href="/politica-de-privacidade/" className="hover:text-[#C0111F] transition-colors">
+                Política de Privacidade
+              </a>
+              <span className="text-[#E5E5E5]">|</span>
+              <p>Franca, São Paulo — Brasil</p>
+            </div>
           </div>
         </div>
       </div>

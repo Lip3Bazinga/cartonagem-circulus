@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Shield,
@@ -20,6 +21,7 @@ import {
   X,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { WEB3FORMS_ACCESS_KEY_COMPLIANCE, WEB3FORMS_ENDPOINT } from "@/lib/web3forms"
 
 const policies = [
   {
@@ -59,30 +61,71 @@ const policies = [
   },
 ]
 
-type FormState = "idle" | "submitting" | "success"
+type FormState = "idle" | "submitting" | "success" | "error"
 
 export function ComplianceSection() {
+  const router = useRouter()
   const [openPolicy, setOpenPolicy] = useState<number | null>(null)
   const [isAnonymous, setIsAnonymous] = useState(true)
   const [formState, setFormState] = useState<FormState>("idle")
+  const [errorMessage, setErrorMessage] = useState("")
   const [form, setForm] = useState({
     name: "",
     email: "",
     subject: "",
     description: "",
   })
+  const [consent, setConsent] = useState(false)
   const [wantsResume, setWantsResume] = useState(false)
   const [resumeFile, setResumeFile] = useState<File | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    if (!consent) {
+      setFormState("error")
+      setErrorMessage("É necessário aceitar o uso dos seus dados para enviar a mensagem.")
+      return
+    }
+
     setFormState("submitting")
-    setTimeout(() => {
+    setErrorMessage("")
+
+    try {
+      const payload = new FormData()
+      payload.set("access_key", WEB3FORMS_ACCESS_KEY_COMPLIANCE)
+      payload.set("subject", `Canal de Comunicação — ${form.subject}`)
+      payload.set("from_name", "Site Cartonagem Circulu's")
+      payload.set("identificacao", isAnonymous ? "Anônimo" : "Identificado")
+      if (!isAnonymous) {
+        payload.set("name", form.name)
+        payload.set("email", form.email)
+      }
+      payload.set("assunto", form.subject)
+      payload.set("message", form.description)
+      if (resumeFile) payload.set("attachment", resumeFile)
+
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: payload,
+      })
+
+      const data = await response.json().catch(() => null)
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.message || "Falha ao enviar mensagem.")
+      }
+
       setFormState("success")
       setForm({ name: "", email: "", subject: "", description: "" })
       setWantsResume(false)
       setResumeFile(null)
-    }, 1800)
+      setConsent(false)
+      router.push("/finalizado/")
+    } catch (error) {
+      setFormState("error")
+      setErrorMessage(error instanceof Error ? error.message : "Falha ao enviar mensagem.")
+    }
   }
 
   return (
@@ -148,7 +191,7 @@ export function ComplianceSection() {
                         <div className="text-left">
                           <p className="text-sm font-semibold text-[#0D0D0D]">{policy.title}</p>
                           {!isOpen && (
-                            <p className="text-xs text-[#909090] mt-0.5">{policy.summary}</p>
+                            <p className="text-xs text-[#6E6E6E] mt-0.5">{policy.summary}</p>
                           )}
                         </div>
                       </div>
@@ -276,10 +319,11 @@ export function ComplianceSection() {
                           className="space-y-4 overflow-hidden"
                         >
                           <div>
-                            <label className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
+                            <label htmlFor="compliance-name" className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
                               Nome
                             </label>
                             <input
+                              id="compliance-name"
                               type="text"
                               value={form.name}
                               onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -288,10 +332,11 @@ export function ComplianceSection() {
                             />
                           </div>
                           <div>
-                            <label className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
+                            <label htmlFor="compliance-email" className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
                               E-mail
                             </label>
                             <input
+                              id="compliance-email"
                               type="email"
                               value={form.email}
                               onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -304,10 +349,11 @@ export function ComplianceSection() {
                     </AnimatePresence>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
+                      <label htmlFor="compliance-subject" className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
                         Assunto
                       </label>
                       <input
+                        id="compliance-subject"
                         type="text"
                         required
                         value={form.subject}
@@ -318,10 +364,11 @@ export function ComplianceSection() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
+                      <label htmlFor="compliance-description" className="block text-xs font-semibold text-[#0D0D0D] uppercase tracking-wide mb-1.5">
                         Sua mensagem
                       </label>
                       <textarea
+                        id="compliance-description"
                         required
                         rows={5}
                         value={form.description}
@@ -389,6 +436,28 @@ export function ComplianceSection() {
                       </AnimatePresence>
                     </div>
 
+                    <label className="flex items-start gap-2 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={consent}
+                        onChange={(e) => setConsent(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded border-[#E5E5E5] text-[#C0111F] focus:ring-[#C0111F]"
+                      />
+                      <span className="text-xs text-[#606060] leading-relaxed">
+                        Autorizo o uso dos meus dados para tratamento deste relato, conforme a{" "}
+                        <a href="/politica-de-privacidade/" target="_blank" className="text-[#C0111F] hover:underline">
+                          Política de Privacidade
+                        </a>
+                        .
+                      </span>
+                    </label>
+
+                    {formState === "error" && (
+                      <p className="text-xs text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-2.5">
+                        {errorMessage}
+                      </p>
+                    )}
+
                     <Button
                       type="submit"
                       disabled={formState === "submitting"}
@@ -411,7 +480,7 @@ export function ComplianceSection() {
                       )}
                     </Button>
 
-                    <p className="text-xs text-center text-[#909090]">
+                    <p className="text-xs text-center text-[#6E6E6E]">
                       Ao enviar, você confirma que as informações são verídicas e de boa-fé.
                     </p>
                   </motion.form>

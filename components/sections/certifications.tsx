@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 
 const certifications = [
   {
@@ -70,17 +71,20 @@ export function CertificationsSection() {
                 {/* Logo */}
                 <div className="flex items-center justify-center mb-6">
                   <div
-                    className={`rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden group-hover:border-[#C0111F]/30 transition-colors duration-300 flex items-center justify-center ${
+                    className={`relative rounded-2xl bg-[#F5F5F5] border border-[#E5E5E5] overflow-hidden group-hover:border-[#C0111F]/30 transition-colors duration-300 flex items-center justify-center ${
                       cert.title === "FSC®" ? "w-48 h-72" : "w-48 h-48"
                     } ${cert.title === "FSC®" ? "p-2" : ""}`}
                   >
-                    <img
+                    <Image
                       src={cert.logo}
                       alt={`Certificação ${cert.title}`}
+                      fill
+                      loading="lazy"
+                      sizes="192px"
                       className={
                         cert.title === "FSC®"
-                          ? "w-full h-full object-contain"
-                          : "w-full h-full object-cover"
+                          ? "object-contain"
+                          : "object-cover"
                       }
                     />
                   </div>

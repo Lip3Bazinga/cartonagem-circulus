@@ -58,27 +58,29 @@ export function HeroSection() {
           {/* Left - Text Content */}
           <div className="text-center lg:text-left">
             {/* Headline */}
-            <div className="overflow-hidden mb-4">
-              <motion.h1
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight"
-              >
-                <span className="text-[#0D0D0D]">Embalagens que valorizam</span>
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden mb-6">
-              <motion.h1
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight"
-              >
-                <span className="text-[#0D0D0D]">a sua </span>
-                <span className="text-[#C0111F]">marca</span>
-              </motion.h1>
-            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+              <div className="overflow-hidden mb-4">
+                <motion.span
+                  initial={{ y: 100 }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="block text-[#0D0D0D]"
+                >
+                  Embalagens que valorizam
+                </motion.span>
+              </div>
+              <div className="overflow-hidden mb-6">
+                <motion.span
+                  initial={{ y: 100 }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                  className="block"
+                >
+                  <span className="text-[#0D0D0D]">a sua </span>
+                  <span className="text-[#C0111F]">marca</span>
+                </motion.span>
+              </div>
+            </h1>
 
             {/* Subheadline */}
             <motion.p

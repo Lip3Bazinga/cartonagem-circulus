@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:zip": "next build && powershell -ExecutionPolicy Bypass -File scripts/zip-deploy.ps1",
     "start": "next start",
     "lint": "eslint ."
   },

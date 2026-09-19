@@ -7,14 +7,14 @@ import Image from "next/image"
 
 const slides = [
   {
-    src: "/images/Impressora offset 1.jpg",
+    src: "/images/impressora-offset-1.jpg",
     alt: "Impressora Offset 1",
     category: "Impressão",
     title: "Impressora Offset 1",
     description: "Impressão 4 cores com acabamento de verniz base d'água. Fidelidade de cores, velocidade e alta tecnologia em impressão.",
   },
   {
-    src: "/images/Impressora offset 2.jpg",
+    src: "/images/impressora-offset-2.jpg",
     alt: "Impressora Offset 2",
     category: "Impressão",
     title: "Impressora Offset 2",
@@ -28,7 +28,7 @@ const slides = [
     description: "Alta produção e perfeição no registro de colagem de papel cartão com micro ondulado, papelão e empastados.",
   },
   {
-    src: "/images/Corte e vinco 2.jpg",
+    src: "/images/corte-e-vinco-2.jpg",
     alt: "Corte e Vinco 2",
     category: "Corte",
     title: "Corte e Vinco 2",
@@ -42,7 +42,7 @@ const slides = [
     description: "Tecnologia, qualidade e confiabilidade para colagem em cartuchos lateral, fundo automático e colagem de 4 e 6 pontos.",
   },
   {
-    src: "/images/P&D.jpg",
+    src: "/images/pd-estudio.jpg",
     alt: "P&D – Estúdio de Pré-Impressão",
     category: "Design",
     title: "P&D – Estúdio de Pré-Impressão",
@@ -56,14 +56,14 @@ const slides = [
     description: "Trabalhamos com ótimos parceiros no fornecimento de matéria-prima, agregando excelente acabamento e resistência para sua embalagem.",
   },
   {
-    src: "/images/Caminhão.jpg",
+    src: "/images/caminhao.jpg",
     alt: "Caminhão",
     category: "Entrega",
     title: "Caminhão",
     description: "Temos frota própria e apoio logístico das melhores empresas de transporte do Brasil, que garante o cumprimento de tempo em produção x entrega.",
   },
   {
-    src: "/images/Aperto de mão.jpg",
+    src: "/images/aperto-de-mao.jpg",
     alt: "Parceria",
     category: "Parceria",
     title: "Parceria",
